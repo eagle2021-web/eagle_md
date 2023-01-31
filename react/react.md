@@ -319,9 +319,10 @@ class A extends React.Component<Props, {
 </html>
 ```
 
-
 #### 生命周期回调函数
+
 ##### 生命周期钩子函数 or 生命周期函数 or 生命周期钩子
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -342,7 +343,7 @@ class A extends React.Component<Props, {
         }
 
         componentDidMount() {
-            this.timer = setInterval(()=> {
+            this.timer = setInterval(() => {
                 let {direct, opacity} = this.state;
                 direct = opacity >= 1 || opacity <= 0 ? -direct : direct;
                 opacity += 0.1 * direct;
@@ -353,20 +354,22 @@ class A extends React.Component<Props, {
             }, 200)
 
         }
+
         close = () => {
             // clearInterval(this.timer)
             ReactDOM.unmountComponentAtNode(document.getElementById("test"))
         }
+
         componentWillUnmount() {
             clearInterval(this.timer)
         }
 
         render() {
             return (
-                <div>
-                    <h2 style={{opacity: this.state.opacity}}>React</h2>
-                    <button onClick={this.close}>卸载组件</button>
-                </div>
+                    <div>
+                        <h2 style={{opacity: this.state.opacity}} onkey>React</h2>
+                        <button onClick={this.close}>卸载组件</button>
+                    </div>
             )
         }
     }
@@ -376,3 +379,64 @@ class A extends React.Component<Props, {
 </body>
 </html>
 ```
+
+```javascript
+// componentWillReceiveProps 实际是 componentWillReceiveNewProps
+// 第一次传无效
+// 
+```
+
+#### 常用组件下载地址 https://bootcdn.cn
+
+## 第三章：React应用（基于React脚手架）
+
+#### 安装启动
+
+```shell
+npm install -g create-react-app
+create-react-app hello-react
+cd hello-react
+npm start
+```
+
+```javascript
+// 50集 手机安卓简单介绍 适配 逃课
+// 51集 性能组件介绍，测试组件 14分钟
+```
+
+#### 代码片段snippets 代码模板 rcc rfc
+
+#### 回车
+```html
+<!doctype html>
+<html lang="en">
+<body>
+<div id="test"></div>
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+    class Login extends React.Component {
+        // 按下回车键抬起后
+        handleKeyUp = (event) => {
+            if (event.keyCode !== 13) return
+            console.log(event.target.value)
+        }
+
+        render() {
+            return (
+                    <div>
+                        <input type="text" onKeyUp={this.handleKeyUp}/>
+                    </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Login/>, document.getElementById("test"))
+</script>
+</body>
+</html>
+```
+
+##### 前端浏览器json格式化插件 FeHelper 代理 65集 24min
