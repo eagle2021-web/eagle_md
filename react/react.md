@@ -407,6 +407,7 @@ npm start
 #### 代码片段snippets 代码模板 rcc rfc
 
 #### 回车
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -441,24 +442,168 @@ npm start
 
 ##### 前端浏览器json格式化插件 FeHelper 代理 65集 24min
 
-
 #### 发布订阅
+
 ##### PubSubJS
+
 ```javascript
 import PubSub from 'pubsub-js'
 // npm i --save-dev @types/pubsub-js
 // npm install pubsub-js
 // Son1 
 search = () => {
-   PubSub.publish('MY TOPIC', (_, data) => {
-       this.setState({
-          "收到的data": data
-       })
-   });
+    PubSub.publish('MY TOPIC', (_, data) => {
+        this.setState({
+            "收到的data": data
+        })
+    });
 }
 // Son2
 ComponentDidMount = () => {
-   PubSub.publish('MY TOPIC', 'hello world!');
+    PubSub.publish('MY TOPIC', 'hello world!');
 }
 ```
 
+#### 路由的理解
+
+1. 什么是路由？
+    1. 一个路由就是一个映射关系 key - value
+    2. key为路径，value可能是function或者component
+2. 路由分类
+    1. 后端路由
+        1. 理解：value是function，用来处理客户端提交的请求
+        2. 注册路由：router.get(path, function(req, res))
+        3. 工作过程：当node接收到一个请求时，根据请求路径找到匹配的路由，调用路由中的函数来处理请求，返回响应数据
+    2. 前端路由
+        1. 浏览器端路由，value就是component，用于展示页面内容
+        2. 注册路由：<Route path="test" component={Test}>
+        3. 工作过程：当浏览器的path变为/test时，当前路由组件就变为Test组件
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<a href="https://www.baidu.com" onclick="return push('/test')"> push test1</a>
+<button onclick="push('/test2')">push test2</button>
+<button onclick="replace('/test3')">replace test3</button>
+<button onclick="back()">回退</button>
+<button onclick="forward()">前进</button>
+<script type="text/javascript" src="https://cdn.bootcss.com/history/4.7.2/history.js"></script>
+<script type="text/javascript">
+    let history = History.createBrowserHistory()
+    push = (path) => {
+        history.push(path)
+        return false
+    }
+    replace = (p) => {
+        history.replace(p)
+    }
+    back = () => {
+        history.goBack()
+    }
+    forward = () => {
+        history.goForward()
+    }
+    history.listen((location) => {
+        console.log('请求路径发生变化', location)
+    })
+</script>
+</body>
+</html>
+```
+
+#### react-router-dom 的理解
+
+1. react的一个插件库
+2. 专门用来实现一个SPA应用
+3. 基于react的项目基本都会用到此库
+
+#### react-router的相关API
+
+##### 内置组件
+
+1. BrowserRouter
+2. HashRouter
+3. Route
+4. Redirect
+5. Link
+6. NavLink
+7. Switch
+
+##### 安装
+
+```shell
+npm install react-router-dom@5 --save
+npm i --save-dev @types/react-router-dom
+```
+
+```javascript
+import React, {Component} from 'react';
+import {Link, BrowserRouter, Route} from 'react-router-dom';
+
+function About(props) {
+    console.log(props)
+    console.log('====')
+    console.dir(props)
+    return <h2>About</h2>
+}
+
+function Home() {
+    return <h2>Home</h2>
+}
+
+class App extends Component {
+    render() {
+        return (
+            <div>
+                <BrowserRouter>
+                    {/*一个应用只能有一个路由*/}
+                    <Link to={'/about'}>About--</Link>
+                    <Link to={"/home"}>Home--</Link>
+                    {/*    注册路由     */}
+                    {/*    路由组件，应该放在pages目录下，而不是components下     */}
+                    <Route path={"/about"} component={About}/>
+                    <Route path={"/home"} component={Home}/>
+                </BrowserRouter>
+            </div>
+        );
+    }
+}
+
+export default App;
+```
+
+##### # 锚点值 # 后路径不会作为请求发送给后端，认为是前端资源
+
+#### 路由组件和一般组件
+
+1. 写法不同：
+    1. 一般组件 <Demo/>
+    2. 路由组件 <Route path="/demo" component={Demo}>
+2. 存放位置不同：
+    1. 一般组件：components
+    2. 路由组件：pages
+3. 接收到的props不同：
+    1. 一般组件：写组件标签时传递了什么，就能接收到什么
+    2. 路由组件：接收到三个固定的属性
+       1. history:
+          1. go: f go(n)
+          2. goBack: f goBack()
+          3. goForward: f goForward()
+          4. push: f push(path, state)
+          5. replace: f replace(path, state)
+       2. location:
+          1. pathname: "/about"
+          2. search: ""
+          3. state: undefined
+       3. match:
+          1. params: {}
+          2. path: "/about"
+          3. url: "/about"
