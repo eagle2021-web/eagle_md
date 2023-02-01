@@ -440,3 +440,25 @@ npm start
 ```
 
 ##### 前端浏览器json格式化插件 FeHelper 代理 65集 24min
+
+
+#### 发布订阅
+##### PubSubJS
+```javascript
+import PubSub from 'pubsub-js'
+// npm i --save-dev @types/pubsub-js
+// npm install pubsub-js
+// Son1 
+search = () => {
+   PubSub.publish('MY TOPIC', (_, data) => {
+       this.setState({
+          "收到的data": data
+       })
+   });
+}
+// Son2
+ComponentDidMount = () => {
+   PubSub.publish('MY TOPIC', 'hello world!');
+}
+```
+
