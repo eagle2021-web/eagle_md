@@ -565,8 +565,9 @@ class App extends Component {
             <div>
                 <BrowserRouter>
                     {/*一个应用只能有一个路由*/}
-                    <Link to={'/about'}>About--</Link>
-                    <Link to={"/home"}>Home--</Link>
+                    <Link to={'/about'}>About--</Link><br/>
+                    <Link to={"/home"}>Home--</Link><br/>
+                    <NavLink to={"/home"} activeClassName={"active22"}>Home_and_点击加类名</NavLink><br/>
                     {/*    注册路由     */}
                     {/*    路由组件，应该放在pages目录下，而不是components下     */}
                     <Route path={"/about"} component={About}/>
@@ -607,3 +608,17 @@ export default App;
           1. params: {}
           2. path: "/about"
           3. url: "/about"
+
+#### 封装Na
+
+```javascript
+class MyNavLink extends React.Component<any, any> {
+    constructor(props) {
+        super(props);
+
+    }
+    render () {
+        return <NavLink to={"/bb"} activeClassName={"bbb"} {...this.props}>{this.props.children}</NavLink>
+    }
+}
+```
