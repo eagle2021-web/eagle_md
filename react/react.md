@@ -565,9 +565,12 @@ class App extends Component {
             <div>
                 <BrowserRouter>
                     {/*一个应用只能有一个路由*/}
-                    <Link to={'/about'}>About--</Link><br/>
-                    <Link to={"/home"}>Home--</Link><br/>
-                    <NavLink to={"/home"} activeClassName={"active22"}>Home_and_点击加类名</NavLink><br/>
+                    <Link to={'/about'}>About--</Link>
+                    <br/>
+                    <Link to={"/home"}>Home--</Link>
+                    <br/>
+                    <NavLink to={"/home"} activeClassName={"active22"}>Home_and_点击加类名</NavLink>
+                    <br/>
                     {/*    注册路由     */}
                     {/*    路由组件，应该放在pages目录下，而不是components下     */}
                     <Route path={"/about"} component={About}/>
@@ -594,20 +597,20 @@ export default App;
 3. 接收到的props不同：
     1. 一般组件：写组件标签时传递了什么，就能接收到什么
     2. 路由组件：接收到三个固定的属性
-       1. history:
-          1. go: f go(n)
-          2. goBack: f goBack()
-          3. goForward: f goForward()
-          4. push: f push(path, state)
-          5. replace: f replace(path, state)
-       2. location:
-          1. pathname: "/about"
-          2. search: ""
-          3. state: undefined
-       3. match:
-          1. params: {}
-          2. path: "/about"
-          3. url: "/about"
+        1. history:
+            1. go: f go(n)
+            2. goBack: f goBack()
+            3. goForward: f goForward()
+            4. push: f push(path, state)
+            5. replace: f replace(path, state)
+        2. location:
+            1. pathname: "/about"
+            2. search: ""
+            3. state: undefined
+        3. match:
+            1. params: {}
+            2. path: "/about"
+            3. url: "/about"
 
 #### 封装Na
 
@@ -617,8 +620,18 @@ class MyNavLink extends React.Component<any, any> {
         super(props);
 
     }
-    render () {
+
+    render() {
         return <NavLink to={"/bb"} activeClassName={"bbb"} {...this.props}>{this.props.children}</NavLink>
     }
 }
+```
+
+```javascript
+// 匹配一个
+<Switch>
+    <Route path={"/about"} component={About}/>
+    <Route path={"/home"} component={Home}/>
+    <Route path={"/home"} component={Home}/>
+</Switch>
 ```
