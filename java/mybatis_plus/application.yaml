@@ -1,0 +1,11 @@
+server:
+  port: 8110 # 服务端口
+
+mybatis-plus: #mybatis
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/eagle/mysql/mapper/xml/*.xml
+## 设置日志级别 在logback文件专门配置
+#logging:
+#  level:
+#    root: ERROR
