@@ -18,7 +18,7 @@
 #include <fstream>
 using namespace std;
 int main() {
-    const char *url ="http://c.biancheng.net/cplus/";
+    const char *url ="https://c.biancheng.net/cplus/";
     //创建一个 fstream 类对象
     fstream fs;
     //将 test.txt 文件和 fs 文件流关联
@@ -30,13 +30,16 @@ int main() {
 }
 ```
 #### 打开文件
+
+#### 写入中文
+
 ```cpp
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std;
 int main()
 {
-//    ios::trunc 
     ifstream inFile;
     inFile.open("c:\\tmp\\test.txt", ios::in);
     if (inFile)  //条件成立，则说明文件打开成功
@@ -45,6 +48,7 @@ int main()
         cout << "test.txt doesn't exist" << endl;
     ofstream oFile;
     oFile.open("test1.txt", ios::out);
+
     if (!oFile)  //条件成立，则说明文件打开出错
         cout << "error 1" << endl;
     else
@@ -55,14 +59,14 @@ int main()
     else
         cout << "error 2" << endl;
     fstream ioFile;
+    const string s("关婷心\n");
     ioFile.open("./test22.txt", ios::out | ios::in | ios::trunc);
     if (!ioFile)
         cout << "error 3" << endl;
     else
-        ioFile.write("关婷心\n", 5);
-        ioFile.close();
-        cout << 111 << endl;
-    system("pause");
+        cout << "s.length = " <<  s.length() << endl;
+        ioFile.write(s.c_str(), s.length());
+    ioFile.close();
     return 0;
 }
 ```
