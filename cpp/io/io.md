@@ -9,8 +9,6 @@
 | ios::in \| ios::out               | ofstream                  | 打开已存在的文件，可以向其写入数据。文件刚打开时，原有内容保持不变。如果文件不存在，则打开出错。 |
 | ios::in \| ios::out \| ios::trunc | fstream                   | 打开文件，既可读取其内容，也可向其写入数据。如果文件本来就存在，则打开时清除原来的内容；如果文件不存在，则新建该文件。 |
 
-
-
 #### 写入
 
 ```cpp
@@ -29,6 +27,7 @@ int main() {
     return 0;
 }
 ```
+
 #### 打开文件
 
 #### 写入中文
@@ -70,3 +69,80 @@ int main()
     return 0;
 }
 ```
+
+#### 流类库继承体系
+
+- 流库具有两个平行的基类：streambuf和ios类，所有流类均以两者之一作为基类
+- streambuf类提供对缓冲区的低级操作：设置缓冲区、对缓冲区指针操作、向缓冲区存/取字符
+- ios_base、ios类记录流状态，支持对streambuf的缓冲区输入/输出的格式化或非格式化转换
+- strstreambuf使用串保存字符序列，扩展streambuf在缓冲区提取和插入的管理
+- filebuf：使用文件保存字符序列，包括打开文件；读、写和查找字符
+
+```cpp
+#include "iosfwd" 
+ostream cout;
+istream cin;
+//istream是baisc_istream模板（类）的一个特化
+template<typename _CharT, typename _Traits = char_traits<_CharT> >
+class basic_istream;
+typedef basic_istream<char> 		istream;
+
+#include "istream"
+template<typename _CharT, typename _Traits>
+class basic_istream : virtual public basic_ios<_CharT, _Traits>  
+#include "basic_ios.h"
+template<typename _CharT, typename _Traits>
+class basic_ios : public ios_base
+#include "iosfwd"
+  typedef basic_ios<char> 		ios; 
+  
+//istream -> basic_istream -> basic_ios
+//忽略中间
+//istream -> basic_ios
+```
+
+
+#### 四个输入输出对象
+- c++为用户进行标准I/O操作定义了四个类对象：cin/cout/cerr/clog
+  - cin为istream流类的对象，代表标准输入设备键盘，后三个为ostream流类的对象
+  - cout代表标准输入输出设备
+  - cerr和clog含义相同，代表错误信息输出设备
+
+#### ostream流的操作
+- operator <<
+- put()
+  - 输出单个字符
+  - 返回一个ostream对象的引用
+  - cout.put('H').put('a').put('\n');
+- write()
+  - write(buf, len)
+  - 返回一个ostream对象的引用
+  - cout.write(buf, len) // char buf[len]
+
+#### istream流的操作
+- operator >>的操作
+- get()
+  - 读取单个字符
+  - 返回一个整数
+    - 字符的ASCII码？
+    - get对回车换行的处理
+  - get(char&)操作
+  - 读取单个字符
+  - 返回一个istream对象引用
+- getline()
+  - 读取一行
+  - 返回istream对象的引用
+  - 与>>的区别
+  - char buf[256]
+  - cin.getline(buf, 256); //get a whole line
+  - cin >> buf; // stop at the 1st bank space
+- read()
+  - read(buf, len)
+  - 返回一个istream对象的引用
+  - 对空白字符照度不误
+- peek()
+  - 查看而不读取
+- putback()
+  - 将特定的字符添加到流
+  - std.putback('a');
+
