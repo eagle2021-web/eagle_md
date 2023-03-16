@@ -13,6 +13,6 @@ int main()
     printf("最终的目标字符串： %s\n", dest);
     strcpy(dest, "This is runoob.com");
     printf("最终的目标字符串： %s\n", dest);
-    return(0);
+    return 0;
 }
 ```
