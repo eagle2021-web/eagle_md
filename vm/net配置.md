@@ -7,7 +7,7 @@ base.vmx
 19 -> 16版本
 virtualHW.version = "16"
 ```
-https://blog.csdn.net/qq237696047/article/details/106266999
+
 ```yaml
 
 ```
