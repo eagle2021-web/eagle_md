@@ -16,15 +16,3 @@ int main()
     return 0;
 }
 ```
-```cpp
-class My_STR{
-public:
-    static char *cp(char *s){
-        const size_t n = std::strlen(s) + 1;
-        char* ret = new char[n];
-        memset(ret, 0, n );
-        strncpy(ret,s,n-1);
-        return ret;
-    }
-};
-```
