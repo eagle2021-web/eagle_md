@@ -16,3 +16,16 @@ int main()
     return 0;
 }
 ```
+```CPP
+char *STRCPY(char* dest,const size_t destlen,const char* src)
+{
+  if (dest==0) return 0;
+  memset(dest,0,destlen);   // 初始化dest。
+  if (src==0) return dest;
+
+  if (strlen(src)>destlen-1) strncpy(dest,src,destlen-1); 
+  else strcpy(dest,src);
+
+  return dest;
+}
+```
