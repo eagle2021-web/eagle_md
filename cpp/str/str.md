@@ -37,5 +37,4 @@ int main() {
     std::cout << s3 << std::endl;
     std::cout << std::strlen(s3) << std::endl;
 }
-
 ```
