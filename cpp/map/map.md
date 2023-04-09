@@ -46,3 +46,51 @@ int main()
         print_key_value(n.first, n.second);
 }
 ```
+
+## 由大到小排序
+```cpp
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+bool cmp(const int& a, const int& b) {
+    return a > b;
+}
+
+int main() {
+    map<int, int, decltype(&cmp)> myMap(cmp);
+
+    myMap[3] = 30;
+    myMap[1] = 10;
+    myMap[2] = 20;
+
+    for (const auto& item : myMap) {
+        cout << item.first << ": " << item.second << endl;
+    }
+
+    return 0;
+}
+```
+## 由大到小排序2
+```cpp
+#include <iostream>
+#include <map>
+
+struct cmp {
+    bool operator() (const int& a, const int& b) const {
+        return a > b;
+    }
+};
+
+int main() {
+    std::map<int, int, cmp> m; // 传入重载了操作符<的结构体
+    m = {{4, 40}, {3, 30}, {2, 20}, {1, 10}};
+
+    for (auto it = m.begin(); it != m.end(); ++it) {
+        std::cout << it->first << " : " << it->second << std::endl;
+    }
+
+    return 0;
+}
+```
