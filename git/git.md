@@ -1,5 +1,10 @@
 ## hosts文件权限
 hosts右键->安全->编辑->写入
+## github ip查询
+```text
+https://www.ipaddress.com/site/github.com  github
+https://ipaddress.com/analysis/github.global.ssl.fastly.net+github.com 证书
+```
 ## hosts文件配置
 ```text
 140.82.112.3 github.com
