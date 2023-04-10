@@ -8,5 +8,4 @@ settings
 /usr/bin/cc
 /usr/bin/c++
 /usr/bin/gdb
-
 ```
