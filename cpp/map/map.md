@@ -65,7 +65,7 @@ int main() {
     myMap[1] = 10;
     myMap[2] = 20;
 
-    for (const auto& item : myMap) {
+    for (const auto&  item : myMap) {
         cout << item.first << ": " << item.second << endl;
     }
 
