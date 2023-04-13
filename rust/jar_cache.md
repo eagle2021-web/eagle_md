@@ -1,0 +1,1 @@
+~\AppData\Roaming\JetBrains\CLion2021.2\plugins\intellij-rust\lib
