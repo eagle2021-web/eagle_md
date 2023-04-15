@@ -1,4 +1,5 @@
 #### 打印key-value
+
 ```cpp
 #include <iostream>
 #include <string>
@@ -48,6 +49,7 @@ int main()
 ```
 
 ## 由大到小排序
+
 ```cpp
 #include <iostream>
 #include <map>
@@ -72,7 +74,9 @@ int main() {
     return 0;
 }
 ```
+
 ## 由大到小排序2
+
 ```cpp
 #include <iostream>
 #include <map>
@@ -89,6 +93,42 @@ int main() {
 
     for (auto it = m.begin(); it != m.end(); ++it) {
         std::cout << it->first << " : " << it->second << std::endl;
+    }
+
+    return 0;
+}
+```
+
+## c++ map如何在迭代的过程中删除元素
+
+```CPP
+#include <iostream>
+#include <map>
+
+int main()
+{
+    std::map<std::string, int> myMap = { {"apple", 10}, {"banana", 5}, {"cherry", 3} };
+
+    // 标记需要删除的元素
+    std::vector<std::string> keysToDelete;
+    for (auto& [key, value] : myMap)
+    {
+        if (value < 5)
+        {
+            keysToDelete.push_back(key);
+        }
+    }
+
+    // 删除被标记的元素
+    for (const auto& key : keysToDelete)
+    {
+        myMap.erase(key);
+    }
+
+    // 输出容器中的元素
+    for (const auto& [key, value] : myMap)
+    {
+        std::cout << key << ": " << value << '\n';
     }
 
     return 0;
