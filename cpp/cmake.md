@@ -8,4 +8,7 @@ Deployment Mappings配置localPath Deployment Path
 ```
 
 ### windows
+##### mingw32
 x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
+##### cmake
+https://github.com/Kitware/CMake/releases/tag/v3.20.2
