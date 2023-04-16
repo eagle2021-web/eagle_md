@@ -69,3 +69,12 @@ echo /usr/local/lib/ >> /etc/ld.so.conf.d/local.conf
 sudo ldconfig
 ```
 此操作将使系统能够搜索该目录中的动态库，并让您在任何地方方便地使用这些库。
+
+
+
+-------
+### windows编译gtest
+clion打开gtest源码
+使用build
+静态库可以在debug下lib看到
+
