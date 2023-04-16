@@ -7,6 +7,6 @@ settings
 /usr/bin/c++
 /usr/bin/gdb
 ```
-```shell00000
+```shell
 apt install cmake gcc g++
 ```
