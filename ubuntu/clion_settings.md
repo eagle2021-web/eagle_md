@@ -1,6 +1,4 @@
-```shell
-apt install cmake
-apt install g++ gcc
+
 ```
 settings
 ```text
@@ -8,4 +6,7 @@ settings
 /usr/bin/cc
 /usr/bin/c++
 /usr/bin/gdb
+```
+```shell00000
+apt install cmake gcc g++
 ```
