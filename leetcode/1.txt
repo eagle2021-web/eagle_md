@@ -1,0 +1,31 @@
+    map<int, int> cnts;
+    map<int, vector<int>> m_list;
+    int cur_max = 0;
+    FreqStack() {
+
+    }
+
+    void push(int val) {
+        cnts[val]++;
+        int cnt = cnts[val];
+        m_list[cnt].push_back(val);
+        cur_max = max(cur_max, cnt);
+    }
+
+    int pop() {
+       int ret = m_list[cur_max].back();
+       m_list[cur_max].pop_back();
+       if(m_list[cur_max].empty()) {
+           cur_max--;
+       }
+        return ret;
+    }
+    int minOperations(string s) {
+        int size = s.size();
+        int p = 0, cnt = 0;
+        for(char const c: s) {
+            cnt += ((c - '0') ^ p) == 1 ? 0 : 1;
+            p ^= 1;
+        }
+        return min(cnt, size - cnt);
+    }
