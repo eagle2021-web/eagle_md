@@ -29,3 +29,17 @@
         }
         return min(cnt, size - cnt);
     }
+    bool check(vector<int>& nums) {
+        int cur = 110;
+        for(int i = 0; i < nums.size(); ){
+            while(i + 1 < nums.size() && nums[i] < nums[i + 1]){
+                if(nums[i] > cur){
+                    return false;
+                }
+            }
+            if(nums[i] > cur)return false;
+            cur = nums[i];
+            i++;
+        }
+        return true;
+    }
