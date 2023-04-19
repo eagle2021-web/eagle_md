@@ -43,3 +43,29 @@
         }
         return true;
     }
+    int expressiveWords(string s, vector<string>& words) {
+        int n = s.size(), ans = 0;
+        for(string &s2: words){
+            int m = s2.size();
+            int i = 0, j = 0;
+            bool ok = true;
+            while (i < n && j < m){
+                if(s[i] != s2[j]){
+                    ok = false;
+                    break;
+                }
+                int a = i + 1, b = j + 1;
+                while(a < n && s[a - 1] == s[a])a++;
+                while (b < m && s2[b - 1] == s2[b])b++;
+                int len1 = a - i, len2 = b - j;
+                if(len1 != len2 && (len2 > len1 || len1 < 3)){
+                    ok = false;
+                    break;
+                }
+                i = a;
+                j = b;
+            }
+            if(ok && i == n && j == m)ans++;
+        }
+        return ans;
+    }
