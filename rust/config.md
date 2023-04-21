@@ -35,6 +35,15 @@ t = "test"
 r = "run"
 rr = "run --release"
 br = "build --release"
+[target.x86_64-pc-windows-msvc.pq]
+rustc-link-search = ["E:/sdk/PostgreSQL/15/lib"]
+rustc-link-lib = ["libpq"]
+[target.x86_64-pa-windows-msvc.mysqlclient]
+rustc-link-search = ["C:/Program Files/MySQL/MySQL Server 5.7/lib"]
+rustc-link-lib = ["mysqlclient"]
+[target.x86_64-pc-windows-msvc.sqlite3]
+rustc-link-search = ["e:/libs/sqlites"]
+rustc-link-lib = ["sqlite3"]
 ```      
 
 C:\Windows\System32\drivers\etc\hosts
