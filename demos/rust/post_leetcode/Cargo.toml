@@ -1,6 +1,7 @@
 [workspace]
 members = [
-    "connect"
+    "connect",
+    "diesel_demo"
 ]
 
 [profile.dev]
