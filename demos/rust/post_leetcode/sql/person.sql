@@ -10,8 +10,8 @@ insert into student ( name, gender) values ('eagle', 1);
 insert into student ( name, gender) values ('eagle1', 1);
 
 CREATE TABLE posts (
-               id SERIAL PRIMARY KEY,
-               title VARCHAR NOT NULL,
-               body TEXT NOT NULL,
-               published BOOLEAN NOT NULL
+   id SERIAL PRIMARY KEY,
+   title VARCHAR NOT NULL,
+   body TEXT NOT NULL,
+   published BOOLEAN NOT NULL
 );
