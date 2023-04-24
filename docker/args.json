@@ -1,0 +1,14 @@
+{
+  "dockerOptions": ["networkMode",
+    "dockerConfig",
+    "pullImage",
+    "dockerHost",
+    "volumes",
+    "deviceRequests",
+    "image",
+    "entryPoint",
+    "memory",
+    "cpu",
+    "user",
+    "extraHosts"]
+}

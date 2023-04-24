@@ -1,0 +1,8 @@
+id: "docker_run"
+namespace: "io.docker"
+tasks:
+  - id: "docker_run"
+    type: "io.kestra.core.tasks.scripts.Bash"
+    commands:
+      - echo "${PATH}"
+      - docker run -p 8080:8080 my-python-app
