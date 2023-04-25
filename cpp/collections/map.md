@@ -61,7 +61,7 @@ bool cmp(const int& a, const int& b) {
 }
 
 int main() {
-    map<int, int, decltype(&cmp)> myMap(cmp);
+    map<int, int, decltype(&cmp)> myMap(cmp); //等同于greater, 由大到小排序
 
     myMap[3] = 30;
     myMap[1] = 10;
