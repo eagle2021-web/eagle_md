@@ -6,6 +6,7 @@ use self::diesel_demo::*;
 use self::models::*;
 use self::diesel::prelude::*;
 use diesel::{insert_into, Insertable, Queryable};
+use diesel_demo::table_models::Post;
 
 fn main() {
     use diesel_demo::schema::posts::dsl::*;
