@@ -29,7 +29,7 @@ async fn main() -> std::io::Result<()> {
         health_check_response: "I'm Ok2.".to_string(),
         visit_count: Mutex::new(0),
     });
-    Command
+
     let app = move || {
         App::new()
             .wrap(
