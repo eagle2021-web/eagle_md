@@ -15,3 +15,6 @@ CREATE TABLE posts (
    body TEXT NOT NULL,
    published BOOLEAN NOT NULL
 );
+
+insert into posts (title, body, published) values
+    ('a', 'b', true), ('a1', 'b1', true), ('a2', 'b2', true), ('a3', 'b3', true), ('a4', 'b4', true) ;
