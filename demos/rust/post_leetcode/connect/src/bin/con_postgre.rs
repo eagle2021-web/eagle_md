@@ -17,7 +17,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 #[cfg(test)]
 mod test_async {
-
     #[test]
     fn test_hello_world_sync() {
         use tokio::time::{sleep, Duration};
@@ -46,6 +45,26 @@ mod test_async {
                 tx.send(i).unwrap();
             }
         });
+        let mut i = 0;
+        while let Ok(r) = rx.recv() {
+            println!("received {}", r);
+            i += r;
+        }
+        assert_eq!(45, i);
+    }
+
+    #[tokio::test]
+    async fn test_channel() {
+        use std::sync::mpsc::channel;
+        use std::thread;
+        let (tx, rx) = channel();
+        for i in 0..10 {
+            let tx = tx.clone(); // 复制一个新的 tx,将这个复制的变量 move 进入子线程
+            thread::spawn(move || {
+                tx.send(i).unwrap();
+            });
+        }
+        drop(tx);
         let mut i = 0;
         while let Ok(r) = rx.recv() {
             println!("received {}", r);
