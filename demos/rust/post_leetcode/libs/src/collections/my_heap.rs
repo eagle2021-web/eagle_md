@@ -3,6 +3,7 @@
 mod test_heap {
     use std::collections::BinaryHeap;
     use std::cmp::Reverse;
+
     #[test]
     fn test_small_root_heap() {
         let mut heap = BinaryHeap::new();
@@ -13,6 +14,7 @@ mod test_heap {
         let a = heap.pop().expect("empty heap");
         assert_eq!(a, 30);
     }
+
     #[test]
     fn test_push() {
         let mut heap = BinaryHeap::new();
