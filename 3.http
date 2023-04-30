@@ -1,0 +1,34 @@
+POST /run/predict/ HTTP/1.1
+Host: 127.0.0.1:7860
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0
+Accept: */*
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Referer: http://127.0.0.1:7860/?__theme=dark
+Content-Type: application/json
+Content-Length: 111
+Origin: http://127.0.0.1:7860
+Connection: keep-alive
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+
+{"fn_index":189,"data":["task(skmdwgp8q70s46z)","{{best quality}}, pretty girl, red hair, long legs","lowres, bad anatomy, text, error, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, {blurry:1.1}, missing arms",[],20,"Euler a",false,false,1,1,7,-1,-1,0,0,0,false,512,512,false,0.7,2,"Latent",0,0,0,[],"None",false,false,"LoRA","None",1,1,"LoRA","None",1,1,"LoRA","None",1,1,"LoRA","None",1,1,"LoRA","None",1,1,"Refresh models",false,false,"positive","comma",0,false,false,"","Seed","","Nothing","","Nothing","",true,false,false,false,0,[{"name":"E:\\BaiduNetdiskDownload\\novelai-webui\\outputs\\txt2img-images\\00000-4100598862-{{best quality}}, pretty girl, blue hair, long legs.png","data":"file=E:\\BaiduNetdiskDownload\\novelai-webui\\outputs\\txt2img-images\\00000-4100598862-{{best quality}}, pretty girl, blue hair, long legs.png","is_file":true}],"{\"prompt\": \"{{best quality}}, pretty girl, blue hair, long legs\", \"all_prompts\": [\"{{best quality}}, pretty girl, blue hair, long legs\"], \"negative_prompt\": \"lowres, bad anatomy, text, error, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, {blurry:1.1}, missing arms\", \"all_negative_prompts\": [\"lowres, bad anatomy, text, error, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, {blurry:1.1}, missing arms\"], \"seed\": 4100598862, \"all_seeds\": [4100598862], \"subseed\": 1009306110, \"all_subseeds\": [1009306110], \"subseed_strength\": 0, \"width\": 512, \"height\": 512, \"sampler_name\": \"Euler a\", \"cfg_scale\": 7, \"steps\": 20, \"batch_size\": 1, \"restore_faces\": false, \"face_restoration_model\": null, \"sd_model_hash\": \"89d59c3dde\", \"seed_resize_from_w\": 0, \"seed_resize_from_h\": 0, \"denoising_strength\": null, \"extra_generation_params\": {}, \"index_of_first_image\": 0, \"infotexts\": [\"{{best quality}}, pretty girl, blue hair, long legs\\nNegative prompt: lowres, bad anatomy, text, error, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, {blurry:1.1}, missing arms\\nSteps: 20, Sampler: Euler a, CFG scale: 7, Seed: 4100598862, Size: 512x512, Model hash: 89d59c3dde, Model: final-prune, Clip skip: 2, ENSD: 31337\"], \"styles\": [], \"job_timestamp\": \"20230430143519\", \"clip_skip\": 2, \"is_using_inpainting_conditioning\": false}","<p>{{best quality}}, pretty girl, blue hair, long legs<br>\nNegative prompt: lowres, bad anatomy, text, error, extra digit, fewer digits, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, {blurry:1.1}, missing arms<br>\nSteps: 20, Sampler: Euler a, CFG scale: 7, Seed: 4100598862, Size: 512x512, Model hash: 89d59c3dde, Model: final-prune, Clip skip: 2, ENSD: 31337</p>","<p></p><div class='performance'><p class='time'>Time taken: <wbr>1m 53.03s</p></div>"],"session_hash":"ipnrfm3nkdh"}
+
+###
+POST /internal/progress HTTP/1.1
+Host: 127.0.0.1:7860
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/112.0
+Accept: */*
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate, br
+Content-Type: application/json
+Content-Length: 55
+Origin: http://127.0.0.1:7860
+Connection: keep-alive
+Referer: http://127.0.0.1:7860/?__theme=dark
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-origin
+
+{"id_task":"task(skmdwgp8q70s46z)","id_live_preview":0}
