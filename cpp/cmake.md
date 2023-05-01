@@ -22,7 +22,7 @@ apt install cmake
 ```
 
 ```shell
-下载 CMake 3.20.2。
+#下载 CMake 3.20.2。
 #
 #前往官网（https://cmake.org/download/）下载CMake 3.20.2 的 Linux 版本。或直接使用以下命令行下载：
 #
