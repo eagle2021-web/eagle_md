@@ -72,9 +72,13 @@ echo /usr/local/lib/ >> /etc/ld.so.conf.d/local.conf
 ```shell
 sudo ldconfig
 ```
-此操作将使系统能够搜索该目录中的动态库，并让您在任何地方方便地使用这些库。
-
-
+此操作将使系统能够搜索该目录中的静态库，并让您在任何地方方便地使用这些库。
+#### 静态库
+```text
+gtest_main 是一个静态库（static library），它是 Google Test 测试框架的一部分，用于支持测试程序的主函数（main() 函数）。
+gtest_main 库包含了一个名为 RUN_ALL_TESTS() 的函数，这个函数可以自动运行所有的测试用例，并输出测试结果。在使用 Google Test 进行单元测试时，通常需要将 gtest_main 静态库链接到测试程序中，以便能够自动执行测试用例。
+与之相对应的是 gtest 库（即 libgtest.a 或 libgtest.so ），它也是一个静态库，包含 Google Test 框架的核心代码和接口，用于编写和运行测试用例。同样地，我们在使用 Google Test 进行单元测试时，也需要将 gtest 静态库链接到测试程序中。
+```
 
 -------
 ### windows编译gtest
