@@ -35,8 +35,12 @@ int main(int argc, char **argv) {
 5.编译和执行测试
 确保正确地链接了gtest库，并且在编译时包括测试文件。 执行可执行文件以运行测试：
 ```shell
+#在执行 g++ test.cpp -lgtest -lgtest_main -pthread -o test 命令时，其中的 -pthread 表示连接 pthread 库。
+#在 Linux 系统中，pthread 是 POSIX 线程标准库的实现，是一种相对轻量级的线程实现机制，可以创建和管理多个线程。使用 -pthread 选项告诉编译器链接 pthread 库，以便在程序中使用多线程相关的函数和操作，而不需要手动指定相关库。
+#这里使用 Google Test 测试框架来展示 -pthread 选项的作用，因为 Google Test 在执行测试时，默认使用了多线程方式，如果不链接 pthread 库，就无法使用 Google Test 进行多线程测试，并且会出现链接错误。而通过添加 -pthread 选项，则可以解决这个问题，使得 Google Test 可以在多线程环境下正确地执行测试。
 g++ test.cpp -lgtest -lgtest_main -pthread -o test
 ./test
+
 ```
 这应该输出测试结果，并告诉您测试是否成功通过或失败。
 
