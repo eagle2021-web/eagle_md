@@ -52,6 +52,66 @@ public:
         }
         return dp[n][m];
     }
+    bool check(vector<int> &nums) {
+        int cnt = 2, n = nums.size(), min_val = 110, i = 0;
+        while (cnt > 0 && i < n) {
+            cnt--;
+            int tmp_min = nums[i];
+            while (i + 1 < n && nums[i] <= nums[i + 1]) {
+                if(nums[i] > min_val)return false;
+                i++;
+            }
+            if(nums[i] > min_val)return false;
+            min_val = tmp_min;
+            i++;
+        }
+        std::cout << i << endl;
+        return i == n;
+    }
+        int reachableNodes(vector<vector<int>> &edges, int maxMoves, int n) {
+            int max_val = INT32_MAX / 2 - 4000;
+            vector<int> dist(n, max_val);
+            vector<bool> vis(n, false);
+            int **neis = new int * [n]{{0}};
+            for(auto &v: edges){
+                int l = v[0], r = v[1], val = v[2];
+                neis[l][r] = val + 1;
+                neis[r][l] = val + 1;
+            }
+            dist[0] = 0;
+
+            for(int i = 0; i < n; i++){
+                int start = -1;
+                for(int j = 0;j < n; j++){
+                    if(vis[j])continue;
+                    if(start == -1 || dist[j] < dist[start])start = j;
+                }
+                vis[start] = true;
+                vector<int> &nei = neis[start];
+                // cout << "===" << start <<endl;
+                for(int j = 0; j < n; j++){
+                    dist[j] = min(dist[j], nei[j] + dist[start]);
+                    // cout << "j == " << j << "dist[j] = " << dist[j] << endl;
+                }
+            }
+            int ans = 0;
+            for(auto &num: dist){
+                if(num <= maxMoves)ans++;
+            }
+            for (int i = 0; i < dist.size(); ++i) {
+                cout << dist[i] << " ";
+            }
+            // cout << endl;
+            // cout << ans << endl;
+            for(int i = 0; i < edges.size(); i++){
+                auto &info = edges[i];
+                int l = info[0], r = info[1], distance = info[2];
+                int left = max(0,  maxMoves - dist[l]), right = max(0, maxMoves - dist[r]);
+                ans += min(left + right, distance);
+                // cout << min(left + right, distance) << endl;
+            }
+            return ans;
+        }
     map<int, int> cnts;
     map<int, vector<int>> m_list;
     int cur_max = 0;
