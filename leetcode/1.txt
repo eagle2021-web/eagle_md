@@ -1,3 +1,57 @@
+class FreqStack {
+public:
+    int mf = 0;
+    unordered_map<int, stack<int>> m;
+    unordered_map<int, int > cnts;
+    FreqStack() {
+
+    }
+
+    void push(int val) {
+        cnts[val]++;
+        m[cnts[val]].push(val);
+        mf = max(cnts[val], mf);
+    }
+
+    int pop() {
+        int pop_val = m[mf].top();
+        m[mf].pop();
+        if(m[mf].empty())mf--;
+        cnts[pop_val]--;
+        return pop_val;
+    }
+};
+   int minOperations(string s) {
+        int cnt = 0, p = 0;
+        for (char &c: s) {
+            int tmp = c - '0';
+            if ((p ^ tmp) == 1)cnt++;
+            p ^= 1;
+        }
+        return min(cnt, int(s.size() - cnt));
+    }
+
+    double largestSumOfAverages(vector<int> &nums, int m) {
+        int n = nums.size();
+        vector<vector<double>> dp(n + 1, vector<double>(m + 1, 0));
+        vector<int> sums(n + 1, 0);
+        for(int i = 0; i < n; i++){
+            sums[i + 1] = sums[i] + nums[i];
+        }
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= min(i, m); j++){
+                if(j == 1){
+                    dp[i][j] = double (sums[i]) / i;
+                    continue;
+                }
+                for(int k = 1; k < i ; k++){
+                    double tmp = dp[k][j - 1] + double(sums[i] - sums[k]) / (i - k);
+                    dp[i][j] = max(dp[i][j], tmp);
+                }
+            }
+        }
+        return dp[n][m];
+    }
     map<int, int> cnts;
     map<int, vector<int>> m_list;
     int cur_max = 0;
