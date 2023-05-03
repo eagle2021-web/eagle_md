@@ -129,7 +129,7 @@ int main() {
     - seekp：设置输出文件流的文件流指针位置
     - seekg：设置输入文件流的文件流指针位置
 - 函数原型：
-    - ostream& sekp(streampos pos);
+    - ostream& seekp(streampos pos);
     - ostream& seekp(streamoff off, ios:seek_dir);
     - istream& seekg(streampos pos);
     - istream& seekg(streamoff off, ios::seek_dir);
