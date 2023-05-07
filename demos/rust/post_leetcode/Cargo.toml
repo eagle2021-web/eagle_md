@@ -3,7 +3,8 @@ members = [
     "connect",
     "diesel_demo",
     "os",
-    "libs"
+    "libs",
+    "my_shell"
 ]
 
 [profile.dev]
