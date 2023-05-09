@@ -4,7 +4,8 @@ members = [
     "diesel_demo",
     "os",
     "libs",
-    "my_shell"
+    "my_shell",
+    "etest"
 ]
 
 [profile.dev]
