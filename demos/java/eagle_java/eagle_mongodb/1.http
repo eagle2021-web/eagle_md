@@ -1,0 +1,6 @@
+GET http://localhost:8001/taco/add
+Accept: text/html
+###
+GET http://localhost:8001/taco/addIngredient
+Accept: text/html
+###

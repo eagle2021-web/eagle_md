@@ -1,0 +1,10 @@
+server:
+  port: 8001 # 服务端口
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
+      auto-index-creation: true
