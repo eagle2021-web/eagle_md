@@ -1,0 +1,36 @@
+[workspace]
+members = [
+    "eagle_macro",
+    "my_shell",
+    "macro_consumer",
+    "proc_macro_lib",
+    "db/mongodb_bin",
+    "authority",
+    "req/reqwest2",
+    "multi_threading/fearless_concurrence",
+    "multi_threading/e_crossbeam",
+    "multi_threading/pool",
+    "multi_threading/e_rayon",
+    "file_local",
+    "etest",
+    "edoc",
+    "common_utils",
+    "my_err",
+    "e_trait/trait_obj",
+    "e_trait/trait_safe",
+    "e_trait/impl_trait",
+    "life_time",
+    "deep",
+    "leetcode",
+    "bit_op",
+    "test_cfg",
+    "docker_lib",
+    "my_web"
+]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
+

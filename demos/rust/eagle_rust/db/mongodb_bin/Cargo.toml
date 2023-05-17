@@ -1,0 +1,30 @@
+[package]
+name = "mongodb_bin"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mongodb = { version = "2.3.0", default-features = false, features = ["tokio-runtime"] }
+serde = { version = "1.0.142", features = ["derive"] }
+actix-rt = "2.7.0"
+chrono = "0.4.22"
+rand = "0.8.5"
+tokio = {version= "1.20.1" }
+futures = "0.3.24"
+
+[[bin]]
+name = "mongodb_insert_many"
+[[bin]]
+name = "mongodb_connect"
+[[bin]]
+name = "mongodb_try_next"
+[[bin]]
+name = "mongodb_find_one"
+[[bin]]
+name = "mongodb_update_one"
+[[bin]]
+name = "mongodb_update_many"
+[[bin]]
+name = "mongodb_update_many_rand"

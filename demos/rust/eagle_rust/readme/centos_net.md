@@ -1,0 +1,1 @@
+vim /etc/sysconfig/network-scripts/ifcfg-ens33
