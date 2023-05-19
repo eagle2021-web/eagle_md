@@ -28,3 +28,41 @@ sudo ldconfig
 ```
 /path/to/libpq.so 是 libpq 库文件的路径。
 希望这些步骤可以帮助您解决问题。
+
+### apt安装的postgres设置密码和监听端口
+修改 PostgreSQL 配置文件
+使用以下命令打开 PostgreSQL 配置文件：
+
+sudo nano /etc/postgresql/12/main/pg_hba.conf
+在该文件中找到以下行或添加以下行：
+
+# "local" is for Unix domain socket connections only
+local   all             postgres                                peer
+将 peer 改为 md5，以要求 Postgres 进行密码验证：
+
+# "local" is for Unix domain socket connections only
+local   all             postgres                                md5
+重启 PostgreSQL 服务
+使用以下命令重启 PostgreSQL 服务以应用更改：
+
+sudo systemctl restart postgresql.service
+切换到 PostgreSQL 用户并重置密码
+切换到 PostgreSQL 账户，并使用以下命令重新设置 PostgreSQL 密码：
+
+sudo -u postgres psql
+ALTER USER postgres PASSWORD 'new_password';
+将 new_password 替换为您想要的新密码。
+
+恢复 PostgreSQL 配置文件设置
+在重设密码后，记得再次编辑 /etc/postgresql/12/main/pg_hba.conf 文件，并将修改前的 peer 恢复为原始状态。
+
+重启 PostgreSQL 服务
+最后，重启 PostgreSQL 服务以使所有更改生效：
+
+sudo systemctl restart postgresql.service
+请注意，此方法假定您具有适当的特权和对 Postgres 数据库服务器完整访问权限.
+
+#### 监听端口
+sudo nano /etc/postgresql/12/main/pg_hba.conf
+listen_addresses = '*'
+port = 5433
