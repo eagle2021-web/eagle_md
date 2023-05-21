@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--配置容器要扫描的包
+    老师解读
+    1. component-scan 要对指定包下的类进行扫描, 并创建对象到容器
+    2. base-package 指定要扫描的包
+    3. 含义是当spring容器创建/初始化时，就会扫描com.hspedu.spring.component包
+       下的所有的 有注解 @Controller / @Service / @Respository / @Component类
+       将其实例化，生成对象，放入到ioc容器
+    4. resource-pattern="User*.class" 表示只扫描com.hspedu.spring.component 和它的子包下的User打头的类
+
+    -->
+    <!--<context:component-scan base-package="com.hspedu.spring.component"/>-->
+
+
+    <!--
+        需求：如果我们希望排除某个包/子包下的某种类型的注解，可以通过exclude-filter来指定
+        1. context:exclude-filter 指定要排除哪些类
+        2. type 指定排除方式 annotation表示按照注解来排除
+        3. expression="org.springframework.stereotype.Service" 指定要排除的注解的全路径
+    -->
+
+    <!--<context:component-scan base-package="com.hspedu.spring.component">-->
+    <!--    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+    <!--    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+    <!--</context:component-scan>-->
+
+    <!--
+        需求：如果我们希望按照自己的规则，来扫描包/子包下的某些注解, 可以通过 include-filter
+        1. use-default-filters="false" 表示不使用默认的过滤机制/扫描机制
+        2. context:include-filter 表示要去扫描哪些类
+        3. type="annotation" 按照注解方式来扫描/过滤
+        4. expression="org.springframework.stereotype.Service" 指定要扫描的注解的全路径
+    -->
+
+    <context:component-scan base-package="com.hspedu.spring.component" use-default-filters="false">
+       <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+       <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+       <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+    </context:component-scan>
+</beans>
