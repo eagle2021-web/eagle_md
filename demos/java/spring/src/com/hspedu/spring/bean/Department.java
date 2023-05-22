@@ -6,6 +6,6 @@ package com.hspedu.spring.bean;
  */
 public class Department {
     public Department() {
-        //System.out.println("Department() 被执行...");
+        System.out.println("Department() 被执行...");
     }
 }

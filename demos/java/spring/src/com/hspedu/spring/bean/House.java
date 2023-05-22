@@ -8,6 +8,7 @@ public class House {
     private String name;
 
     public House() {
+        System.out.println();
         System.out.println("House() 构造器...");
     }
 
@@ -25,6 +26,7 @@ public class House {
     //2. 根据自己的业务逻辑来写.
     public void init() {
         System.out.println("House init()..");
+        setName("深圳豪宅");
     }
 
     //老师解读

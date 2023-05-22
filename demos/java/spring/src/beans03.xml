@@ -38,7 +38,7 @@
      4. 提示，需要带上 classpath
      5. 属性文件有中文，需要将其转为unicode编码-> 使用工具
      -->
-    <context:property-placeholder location="classpath:my.properties"/>
+    <context:property-placeholder location="classpath:my.properties" file-encoding="utf-8"/>
     <!--配置Monster对象
     1.通过属性文件给monster对象的属性赋值
     2. 这时我们的属性值通过${属性名}

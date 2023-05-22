@@ -6,11 +6,11 @@
 
 
     <!--配置House对象-->
-    <bean class="com.hspedu.spring.bean.House" id="house"
-          init-method="init"
-          destroy-method="destroy">
-        <property name="name" value="大豪宅"/>
-    </bean>
+<!--    <bean class="com.hspedu.spring.bean.House" id="house"-->
+<!--          init-method="init"-->
+<!--          destroy-method="destroy">-->
+<!--        <property name="name" value="大豪宅"/>-->
+<!--    </bean>-->
 
     <bean class="com.hspedu.spring.bean.House" id="house02"
           init-method="init"

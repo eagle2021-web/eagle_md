@@ -41,11 +41,14 @@ public class SpringBeanTest {
         ApplicationContext ioc =
                 new ClassPathXmlApplicationContext("beans06.xml");
 
+//        UserService userService300 = ioc.getBean("userService300", UserService.class);
+//        System.out.println("ioc容器中的userService300=" + userService300);
+//
+//        UserService userService200 = ioc.getBean("userService200", UserService.class);
+//        System.out.println("ioc容器中的userService200=" + userService200);
+
         UserService userService = ioc.getBean("userService", UserService.class);
         System.out.println("ioc容器中的userService=" + userService);
-
-        UserService userService200 = ioc.getBean("userService200", UserService.class);
-        System.out.println("ioc容器中的userService200=" + userService200);
 
         UserAction userAction = ioc.getBean("userAction", UserAction.class);
         //System.out.println("userAction=" + userAction);
@@ -64,7 +67,7 @@ public class SpringBeanTest {
         UserDao userDao1 = ioc.getBean("userDao", UserDao.class);
         System.out.println("userDao1=" + userDao1);
 
-        UserService userService = ioc.getBean(UserService.class);
+        UserService userService = ioc.getBean("userService", UserService.class);
         UserAction userAction = ioc.getBean(UserAction.class);
         MyComponent myComponent = ioc.getBean(MyComponent.class);
 
@@ -73,9 +76,6 @@ public class SpringBeanTest {
         System.out.println("userService=" + userService);
         System.out.println("userAction=" + userAction);
         System.out.println("myComponent=" + myComponent);
-
-
-
 
 
         System.out.println("ok");
@@ -126,20 +126,19 @@ public class SpringBeanTest {
     }
 
 
-
     @Test
-    public void testBeanPostProcessor() {
+    public void testBeanPostProcessor2() {
 
         ApplicationContext ioc =
                 new ClassPathXmlApplicationContext("beans02.xml");
 
-        House house = ioc.getBean("house", House.class);
-        System.out.println("使用house=" + house);
+//        House house = ioc.getBean("house", House.class);
+//        System.out.println("使用house=" + house);
+//
+//        House house02 = ioc.getBean("house02", House.class);
+//        System.out.println("使用house02=" + house02);
 
-        House house02 = ioc.getBean("house02", House.class);
-        System.out.println("使用house02=" + house02);
-
-        ((ConfigurableApplicationContext)ioc).close();
+        ((ConfigurableApplicationContext) ioc).close();
 
     }
 
@@ -162,7 +161,7 @@ public class SpringBeanTest {
         //5. 将ioc 转成ClassPathXmlApplicationContext,再调用close
         //ioc.close();
         //关闭ioc容器.
-        ((ConfigurableApplicationContext) ioc).close();
+        ((ClassPathXmlApplicationContext) ioc).close();
 
 
     }
@@ -251,6 +250,7 @@ public class SpringBeanTest {
 
         Monster my_monster01 = ioc.getBean("my_monster01", Monster.class);
         Monster my_monster04 = ioc.getBean("my_monster04", Monster.class);
+        System.out.println("----------");
         System.out.println("my_monster01=" + my_monster01);
         System.out.println(my_monster01 == my_monster04);//true
 

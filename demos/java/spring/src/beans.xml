@@ -15,7 +15,8 @@
     -->
     <bean class="com.hspedu.spring.bean.House" id="house"
           init-method="init"
-          destroy-method="destroy">
+          destroy-method="destroy"
+          lazy-init="true">
         <property name="name" value="北京豪宅"/>
     </bean>
 
@@ -242,7 +243,6 @@
     <bean class="com.hspedu.spring.service.MemberServiceImpl" id="memberService">
         <property name="memberDAO" ref="memberDAO"/>
     </bean>
-
 
 
     <!--通过p名称空间来配置bean

@@ -34,7 +34,8 @@ public class UserAction {
     //指定id进行组装, 也可以使用@Autowired 和 @Qualifier(value = "userService02")
     // 这时，是装配的 id=userService02 , 需要两个注解都需要写上
 
-    @Resource
+    @Autowired
+//    @Qualifier(value = "userService200")
     private UserService userService;
 
     public void sayOk() {

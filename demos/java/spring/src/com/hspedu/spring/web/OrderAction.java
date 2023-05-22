@@ -8,6 +8,9 @@ import com.hspedu.spring.service.OrderService;
  * Servlet就是Controller
  */
 public class OrderAction {
+    public static void main(String[] args) {
+        ;
+    }
     //属性OrderService
     private OrderService orderService;
 
