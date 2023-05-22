@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 public class HealthController {
@@ -17,13 +19,10 @@ public class HealthController {
     @Qualifier("helloService")
     private HelloService helloService;
     @GetMapping("/health")
-    public ResponseEntity Health() {
+    public R Health() {
         helloService.sayHello();
         System.out.println("----------");
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body("daf")
-                ;
+        return R.builder().build().ok();
     }
     @GetMapping("/notFound")
     public ResponseEntity notFound() {

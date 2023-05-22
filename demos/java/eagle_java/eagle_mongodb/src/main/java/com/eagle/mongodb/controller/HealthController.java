@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,6 @@ class HealthController {
                 .where("name").is("eagle");
         Query query = new Query(gt);
         HealthController.Student one = mongoTemplate.findOne(query, HealthController.Student.class);
-        return R.ok().data("health", one);
+        return R.builder().build().httpStatus(HttpStatus.OK);
     }
 }

@@ -4,6 +4,7 @@ package com.eagle.mysql.controller;
 import com.eagle.common.result.R;
 import com.eagle.mysql.pojo.entity.Health;
 import com.eagle.mysql.service.HealthService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -27,13 +28,13 @@ public class HealthController {
 
     @GetMapping("")
     public R getHealth() {
-        return R.ok().data("health", "ok");
+        return R.builder().build().httpStatus(HttpStatus.OK);
     }
 
     @GetMapping("/one")
     public R getOne() {
         Health health = healthService.getById(1);
-        return R.ok().data("health", health);
+        return R.builder().build().httpStatus(HttpStatus.OK);
     }
 }
 
