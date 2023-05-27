@@ -1,2 +1,2 @@
-GET http://localhost:8112/health
+GET http://localhost:8112/mysql/health
 Accept: application/json

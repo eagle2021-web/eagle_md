@@ -1,7 +1,7 @@
 server:
   port: 8112 # 服务端口
   servlet:
-    context-path: /eagle
+    context-path: /mysql
 spring:
   profiles:
     active: dev # 环境设置
@@ -10,6 +10,6 @@ spring:
   datasource: # mysql数据库连接
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.0.131:3306/test?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    url: jdbc:mysql://h131:3306/test?serverTimezone=GMT%2B8&characterEncoding=utf-8
     username: root
-    password: 123456
+    password: "123456" # 需要配置环境变量MYSQL_PASSWORD
