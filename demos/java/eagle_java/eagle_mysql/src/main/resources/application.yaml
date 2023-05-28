@@ -16,7 +16,7 @@ spring:
 logging:
   level:
     root: info
-  file:
-    name: LOG_PATH/your-log-filename.log # 定义日志文件名和路径
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+#  file:
+#    name: LOG_PATH/your-log-filename.log # 定义日志文件名和路径
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
