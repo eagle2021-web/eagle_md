@@ -33,7 +33,6 @@ public class HealthController {
     }
     @PostMapping("/healthJson")
     public R postHealthJson(@RequestBody Health health) {
-        System.out.println(health);
         return R.builder()
                 .build()
                 .addData("health", health)

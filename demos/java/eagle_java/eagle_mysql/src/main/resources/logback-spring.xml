@@ -12,7 +12,7 @@
     <!-- white:白色 -->
     <!-- magenta:洋红 -->
     <property name="CONSOLE_LOG_PATTERN"
-              value="%yellow(%date{yyyy-MM-dd HH:mm:ss.SS}) [%thread] --%highlight([%-5level]) %green(%logger) %msg%n"/>
+              value="%yellow(%date{yyyy-MM-dd HH:mm:ss.SS}) [%thread] --%highlight([%-5level]) %green(%logger) %n%msg%n"/>
 
     <!--文件日志格式-->
     <property name="FILE_LOG_PATTERN"
