@@ -32,7 +32,7 @@ public class CountTimeAspect {
         String className = pjd.getSignature().getClass().getName();
         // 获取执行的方法名称
         String methodName = pjd.getSignature().getName();
-        log.info("方法名称：：{}", methodName);
+        log.info("方法名称：{}", methodName);
         // 记录开始时间
         long start = System.currentTimeMillis();
         // 获取方法参数

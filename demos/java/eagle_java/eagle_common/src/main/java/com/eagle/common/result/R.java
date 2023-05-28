@@ -32,4 +32,12 @@ public class R {
     public R ok() {
         return httpStatus(HttpStatus.OK);
     }
+
+    public R addData(String key, Object value){
+        if(data == null){
+            data = new HashMap<>();
+        }
+        data.put(key, value);
+        return this;
+    }
 }
