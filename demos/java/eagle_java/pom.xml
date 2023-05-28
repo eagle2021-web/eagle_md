@@ -8,7 +8,7 @@
 
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.4.RELEASE</version>
+        <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.eagle</groupId>
@@ -22,6 +22,7 @@
         <module>eagle_mongodb</module>
         <module>eagle_redis</module>
         <module>eagle_leetcode</module>
+        <module>eagle_spring_test</module>
     </modules>
 
     <properties>

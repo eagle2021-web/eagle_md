@@ -2,6 +2,7 @@ package com.eagle.mysql.mapper;
 
 import com.eagle.mysql.pojo.entity.Health;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.mapstruct.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author eagle
  * @since 2022-11-15
  */
+@Mapper
 public interface HealthMapper extends BaseMapper<Health> {
 
 }
