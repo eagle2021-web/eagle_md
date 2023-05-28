@@ -1,0 +1,15 @@
+server:
+  port: 8998 # 服务端口
+  servlet:
+    context-path: /test
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-mysql # 服务名
+  datasource: # mysql数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://h131:3306/test?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    username: root
+    password: "123456" # 需要配置环境变量MYSQL_PASSWORD

@@ -11,6 +11,11 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import javax.annotation.Resource;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 import static org.mockito.Mockito.*;
@@ -21,21 +26,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class HealthControllerTest {
 
-    @Autowired
+    @Resource
     private MockMvc mockMvc;
 
     @Test
     void testGreeting() throws Exception {
-        // Create the expected response string
-        String expectedResponse = "Hello, World!";
-
-        // Perform the MockHTTP GET request to the /greeting endpoint
-//        mockMvc.perform(get("/greeting"))
-//
-//                // Expect a successful response with status 200
-//                .andExpect(status().isOk())
-//
-//                // Expect a response string equal to our expected value
-//                .andExpect(content().string(expectedResponse));
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/health")
+                )
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
