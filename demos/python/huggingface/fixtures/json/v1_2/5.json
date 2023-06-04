@@ -1,0 +1,553 @@
+[
+  {
+    "type": "directory",
+    "oid": "7299940e08571558e277cb49e22b8aed9de02725",
+    "size": 0,
+    "path": "data/propeller-spin",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "8c85bc07882fd42d254a2755a7e5348ca4afd262",
+    "size": 0,
+    "path": "data/protocol-buffer",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "95ea26c335118bb2abf3653d6c7c2d95ea2ec79d",
+    "size": 0,
+    "path": "data/public-key",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "5f0605a4a4ef6370f92bccffd92adb500c10579b",
+    "size": 0,
+    "path": "data/pure-data",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "dc120b092023a2d724facbabeba00789bd568537",
+    "size": 0,
+    "path": "data/purebasic",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "29945918192a966ef18e7bb75056f16e0439207c",
+    "size": 0,
+    "path": "data/purescript",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "7f9ffffe59a3146ce76a43c641c4dba11e6b282e",
+    "size": 0,
+    "path": "data/python-traceback",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "b41c6cc8aea000dfb56d5538c56c5baf43ed68b4",
+    "size": 0,
+    "path": "data/python",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "ab2d1e0b5faf75c86daeb3bb6b4d98909f01f944",
+    "size": 0,
+    "path": "data/qmake",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "55e2e3e912a5456bd77641ffb99d29d7001eff23",
+    "size": 0,
+    "path": "data/qml",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "ba0de77b1c304c26d8503bb98e03987fee5ff89c",
+    "size": 0,
+    "path": "data/r",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "d599379e2ef29a3cf5a707b46a47ba011b79738f",
+    "size": 0,
+    "path": "data/racket",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "8b3793a794755e8a5e20b8f1ca641f49c7faac78",
+    "size": 0,
+    "path": "data/ragel-in-ruby-host",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "9a8a3fabac972b2e7339fa0ca0a04529346aa794",
+    "size": 0,
+    "path": "data/raml",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "64c4b0ddfdaa7a358619cfb0998fe56db0b38762",
+    "size": 0,
+    "path": "data/raw-token-data",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "34f7ce166ff42ec3b517c15b5824fe6ce789032f",
+    "size": 0,
+    "path": "data/rdoc",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "eb8fc69361aaf0d6a1feca386f1a549736e90bd9",
+    "size": 0,
+    "path": "data/realbasic",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "66b917e37e54b1e903ec7b37d8906002183535b7",
+    "size": 0,
+    "path": "data/rebol",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "477da7abe2dc1b2d7e51182fdf291afcc8ec0ef9",
+    "size": 0,
+    "path": "data/red",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "7b1708ffa621aaf68f885018128f5f26e06d1433",
+    "size": 0,
+    "path": "data/redcode",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "a8e979b11bc9b18948277a12cbc18a85360c4b06",
+    "size": 0,
+    "path": "data/ren'py",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "1537be8bc32c887b8b81d513abecb30121fab717",
+    "size": 0,
+    "path": "data/renderscript",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "41df67a4b1351862a0480202ad4ba6ad3edcb76f",
+    "size": 0,
+    "path": "data/restructuredtext",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "e1ae5ba3fa777853d1b9359efa311877bb730b09",
+    "size": 0,
+    "path": "data/rhtml",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "8a4e9bfe2a5d9dcdc3abb7d4722fe83f3e555682",
+    "size": 0,
+    "path": "data/rmarkdown",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "7a0bc8539b6871df0bd69f4c6d241adba7a61859",
+    "size": 0,
+    "path": "data/robotframework",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "04b6f37a3f615e175aa72da7519d6372c717ef10",
+    "size": 0,
+    "path": "data/rouge",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "2791cfc32ae5bf40656871efbaa2078a69b32ca4",
+    "size": 0,
+    "path": "data/ruby",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "59a74a16b5d1fadd13f2b01d9230f2f1168d1147",
+    "size": 0,
+    "path": "data/rust",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "9c3d0d957bd648e720e6d61ec8d7a1cec5e797b7",
+    "size": 0,
+    "path": "data/sage",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "66774888ac781272b38a2e92d0bb63b8474a0ed1",
+    "size": 0,
+    "path": "data/saltstack",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "44c420738274b4da7b44b1fb662495b221d06a64",
+    "size": 0,
+    "path": "data/sas",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "c4331902831e4c353ecd17d83518038eded03e83",
+    "size": 0,
+    "path": "data/sass",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "226f03131f68ebe519a3a1c319ec871aaf23aae9",
+    "size": 0,
+    "path": "data/scala",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "91fb06e1c51b3a083aa6adf5d9abc92985b0ec78",
+    "size": 0,
+    "path": "data/scaml",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "b1750aab8f4a93c788ed9bdcd4385fc63a2e031e",
+    "size": 0,
+    "path": "data/scheme",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "e06a6b676a062a0beb59da76fb13a84c67440098",
+    "size": 0,
+    "path": "data/scilab",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "12ff8221dd97a6fc7d775a2dc8cae9772c5d0fb4",
+    "size": 0,
+    "path": "data/scss",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "c8f6ddc068131e005978705a5f5a7e0eb2b31717",
+    "size": 0,
+    "path": "data/self",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "bb2bfc32953b796dbd33dda92f3f57e87abac9b0",
+    "size": 0,
+    "path": "data/shell",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "b3d799253d1228ec2699548c9affb9612994e3cc",
+    "size": 0,
+    "path": "data/shellsession",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "ffc6b6bd4902da2bdb32030c4e503baffd3bff03",
+    "size": 0,
+    "path": "data/shen",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "9733345e1ad13227847fb59e771c381097474052",
+    "size": 0,
+    "path": "data/slash",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "bfc3081b3803682f682ccb7fd93d6a749be20692",
+    "size": 0,
+    "path": "data/slim",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "29112d7f6ecf498048d5233ec710c13642c21e6e",
+    "size": 0,
+    "path": "data/smali",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "1470191d9810ce97883466cbfe718c261bd7a7aa",
+    "size": 0,
+    "path": "data/smalltalk",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "ce3339b584b33233a99885089cc485bc549af92f",
+    "size": 0,
+    "path": "data/smarty",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "69af3a0ada18ec80b59477941428585354d1a6d9",
+    "size": 0,
+    "path": "data/smt",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "dea401994b076f34489cdf5cae18eafa6e5e21c7",
+    "size": 0,
+    "path": "data/solidity",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    }
+  },
+  {
+    "type": "directory",
+    "oid": "385cd854f4d5524e5364e5dcf146154fdb17ef3e",
+    "size": 0,
+    "path": "data/sourcepawn",
+    "lastCommit": {
+      "id": "5d3ecf104981e98be039c6b397ed479916fcd767",
+      "title": "added the stack v1.2 files",
+      "date": "2023-03-15T19:56:48.000Z"
+    },
+    "next_url": "https://huggingface.co/api/datasets/bigcode/the-stack/tree/v1.2/data?cursor=ZXlKbWFXeGxYMjVoYldVaU9pSmtZWFJoTDNOdmRYSmpaWEJoZDI0aWZRPT06MzAw&expand=true"
+  }
+]
