@@ -27,6 +27,11 @@ class FileKits:
         with open(file_path, 'w') as f:
             json.dump(data, f)
 
+    @classmethod
+    def write_str(cls, file_path: Union[str, Path], data: str):
+        with open(file_path, 'w', encoding=Fields.utf8) as f:
+            f.write(data)
+
 
 class TestFileKits(TestCase):
     def test_read_file_and_get_str(self):

@@ -8,3 +8,9 @@ class CookieKits:
         path = BASE_DIR.joinpath('cookie/next_url_cookie.txt')
         content = FileKits.read_file_and_get_str(path).strip()
         return content
+
+    @classmethod
+    def get_data_html_cookie(cls):
+        path = BASE_DIR.joinpath('cookie/data_html_cookie.txt')
+        content = FileKits.read_file_and_get_str(path).strip()
+        return content

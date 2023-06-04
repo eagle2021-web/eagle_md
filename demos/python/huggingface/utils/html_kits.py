@@ -8,9 +8,21 @@ from fixtures import BASE_DIR
 from models.field import Fields
 from utils.file_kits import FileKits
 from utils.httpKits import HttpKits
-from urllib.parse import unquote
+from urllib.parse import unquote, quote
+
+
+class NetFileMod:
+    def __init__(self):
+        self.rest_url = None
+        self.num = None
+        self.storage_size = None
+
+    def __str__(self):
+        return self.__dict__
+
 
 class HtmlKits:
+    size_can = ['kb', 'mb', 'gb']
 
     @classmethod
     def parser_html_and_get_str_with_prefix(cls, content: str, prefix: str):
@@ -20,6 +32,27 @@ class HtmlKits:
             href: str = link[Fields.href]
             if href.startswith(prefix) and not href.__eq__(prefix):
                 ret.append(href)
+        return ret
+
+    @classmethod
+    def extract_net_file_from_html_with_prefix(cls, content: str, prefix: str) -> List[NetFileMod]:
+        prefix = quote(prefix)
+        soup = BeautifulSoup(content, 'html.parser')
+        ret = list()
+        for link in soup.find_all('a', href=True):
+            href: str = link[Fields.href]
+            if not (href.startswith(prefix) and not href.__eq__(prefix)):
+                continue
+            text: str = link.text
+            arr = text.splitlines()
+            net_file = NetFileMod()
+            net_file.rest_url = href
+            for _v in arr:
+                v = _v.strip().lower()
+                if len(v) == 0 or 'lfs'.__eq__(v):
+                    continue
+                net_file.num, net_file.storage_size = v.split(' ', 1)
+            ret.append(net_file)
         return ret
 
     @classmethod
@@ -71,3 +104,23 @@ class TestParser(TestCase):
                 rel_dir = cur_path[data_len:]
                 ret.append(rel_dir)
         FileKits.write_json('tmp.json', ret)
+
+    @classmethod
+    def check_html(cls, branch, sub_dir):
+        path = BASE_DIR.joinpath(f'fixtures/htmls/{branch}/{sub_dir}.html')
+        content = FileKits.read_file_and_get_str(path)
+        prefix = HttpKits.get_resolve_prefix_with_sub_dir(branch, sub_dir)
+        arr = HtmlKits.extract_net_file_from_html_with_prefix(content, prefix)
+        print(len(arr))
+        for v in arr:
+            print(v.__dict__)
+
+    def test_abap_html(self):
+        branch = 'main'
+        sub_dir = 'abap'
+        self.check_html(branch, sub_dir)
+
+    def test_cpp_html(self):
+        branch = 'main'
+        sub_dir = 'c++'
+        self.check_html(branch, sub_dir)

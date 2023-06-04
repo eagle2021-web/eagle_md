@@ -9,9 +9,13 @@ class HttpMod:
         self.port = '80'
         self.rest_url = ''
 
+    def __str__(self):
+        return self.__dict__
+
 
 class HttpKits:
     datasets_tree = '/datasets/bigcode/the-stack/tree'
+    datasets_resolve = '/datasets/bigcode/the-stack/resolve'
 
     @classmethod
     def get_prefix_datasets_tree_with_branch(cls, branch: str):
@@ -20,6 +24,10 @@ class HttpKits:
     @classmethod
     def get_prefix_datasets_data_url(cls, branch: str):
         return f'{cls.datasets_tree}/{branch}/{Fields.data}'
+
+    @classmethod
+    def get_resolve_prefix_with_sub_dir(cls, branch: str, sub_dir: str):
+        return f'{cls.datasets_resolve}/{branch}/{Fields.data}/{sub_dir}'
 
     @classmethod
     def extract_msg_from_url(cls, url: str) -> HttpMod:
