@@ -7,7 +7,7 @@ package com.hspedu.spring.aop.proxy;
  */
 public interface SmartAnimalable {
     //求和
-    float getSum(float i, float j);
+    Float getSum(float i, float j);
     //求差
-    float getSub(float i, float j);
+    Float getSub(float i, float j);
 }

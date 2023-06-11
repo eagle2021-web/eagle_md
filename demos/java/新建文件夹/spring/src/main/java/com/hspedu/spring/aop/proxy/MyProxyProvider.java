@@ -35,7 +35,7 @@ public class MyProxyProvider {
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object result = null;
                 try {
-                    System.out.println("方法执行前-日志-方法名-" + method.getName() + "-参数 "
+                    System.out.println("方法执行前-日志-方法名111111-" + method.getName() + "-参数 "
                             + Arrays.asList(args)); //这里从AOP看，就是一个横切关注点-前置通知
                     //使用反射调用方法
                     result = method.invoke(target_obj, args);
@@ -52,7 +52,7 @@ public class MyProxyProvider {
                     System.out.println("方法最终结束-日志-方法名-" + method.getName());
                 }
 
-                return result;
+                return null;
             }
         };
 

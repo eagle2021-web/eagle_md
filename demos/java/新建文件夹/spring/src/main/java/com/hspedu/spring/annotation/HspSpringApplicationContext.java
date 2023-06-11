@@ -60,8 +60,9 @@ public class HspSpringApplicationContext {
 
                     //1. 获取到类名
                     String className =
-                            fileAbsolutePath.substring(fileAbsolutePath.lastIndexOf("\\") + 1, fileAbsolutePath.indexOf(".class"));
-                    //System.out.println("className=" + className);
+                            fileAbsolutePath.substring(fileAbsolutePath.lastIndexOf("\\") + 1,
+                                    fileAbsolutePath.indexOf(".class"));
+                    System.out.println("className=" + className);
                     //2. 获取类的完整的路径(全类名)
                     //老师解读 path.replace("/",".") => com.hspedu.spring.component.
                     String classFullName = path.replace("/", ".") + "." + className;
@@ -84,11 +85,11 @@ public class HspSpringApplicationContext {
 
                             //这里老师演示一个Component注解指定value,分配id
                             //老师就是演示了一下机制.
-                            if(aClass.isAnnotationPresent(Component.class)) {
+                            if (aClass.isAnnotationPresent(Component.class)) {
                                 //获取到该注解
                                 Component component = aClass.getDeclaredAnnotation(Component.class);
                                 String id = component.value();
-                                if(!"".endsWith(id)) {
+                                if (!"".endsWith(id)) {
                                     className = id;//替换
                                 }
                             }
@@ -99,7 +100,7 @@ public class HspSpringApplicationContext {
                             //放入到容器中, 将类名的首字母小写作为id
                             //StringUtils
 
-                            ioc.put(StringUtils.uncapitalize(className) , instance);
+                            ioc.put(StringUtils.uncapitalize(className), instance);
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
