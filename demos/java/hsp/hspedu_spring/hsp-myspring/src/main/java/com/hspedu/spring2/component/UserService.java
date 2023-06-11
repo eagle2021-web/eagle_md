@@ -1,4 +1,4 @@
-package com.hspedu.spring.component;
+package com.hspedu.spring2.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

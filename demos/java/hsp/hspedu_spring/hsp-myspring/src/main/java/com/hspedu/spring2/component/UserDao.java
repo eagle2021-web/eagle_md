@@ -1,4 +1,4 @@
-package com.hspedu.spring.component;
+package com.hspedu.spring2.component;
 
 import org.springframework.stereotype.Component;
 

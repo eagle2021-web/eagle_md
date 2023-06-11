@@ -1,4 +1,4 @@
-package com.hspedu.spring.aop;
+package com.hspedu.spring2.aop;
 
 /**
  * @author 韩顺平

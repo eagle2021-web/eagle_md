@@ -1,4 +1,4 @@
-package com.hspedu.spring.process;
+package com.hspedu.spring2.process;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

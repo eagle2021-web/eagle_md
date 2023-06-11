@@ -1,4 +1,4 @@
-package com.hspedu.spring.aop;
+package com.hspedu.spring2.aop;
 
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 

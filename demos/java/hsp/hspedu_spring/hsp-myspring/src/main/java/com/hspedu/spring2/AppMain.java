@@ -1,9 +1,9 @@
-package com.hspedu.spring;
+package com.hspedu.spring2;
 
-import com.hspedu.spring.aop.SmartAnimalable;
-import com.hspedu.spring.component.UserAction;
-import com.hspedu.spring.component.UserDao;
-import com.hspedu.spring.component.UserService;
+import com.hspedu.spring2.aop.SmartAnimalable;
+import com.hspedu.spring2.component.UserAction;
+import com.hspedu.spring2.component.UserDao;
+import com.hspedu.spring2.component.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
