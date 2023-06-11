@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--老韩解读
+        1. parent指定了该模块的父项目的完整坐标 groupId+artifactId
+        2. artifactId 子模块的名称
+        3. 当前模块的groupId 就是 com.hspedu
+        4. 这里配置后, 该模块就可以使用/引用到父项目的依赖
+    -->
+    <parent>
+        <artifactId>mybatis</artifactId>
+        <groupId>com.hspedu</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mybatis_quickstart</artifactId>
+
+
+</project>
