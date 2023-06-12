@@ -52,9 +52,9 @@ public class JdbcTemplateTest {
         //String sql = "INSERT INTO monster VALUES(400, '红孩儿', '枪法')";
         //jdbcTemplate.execute(sql);
         //2. 添加方式2
-        String sql = "INSERT INTO monster VALUES(?, ?, ?)";
+        String sql = "insert into monster (name, skill) values (?, ?);";
         //affected表示 执行后表受影响的记录数
-        int affected = jdbcTemplate.update(sql, 500, "红孩儿2", "枪法2");
+        int affected = jdbcTemplate.update(sql,  "红孩儿2", "枪法2");
         System.out.println("add ok affected=" + affected);
 
 
@@ -100,10 +100,10 @@ public class JdbcTemplateTest {
         //1. 先确定,猜测API名称 batchUpdate[如果出现问题，才重新玩]
         //public int[] batchUpdate(String sql, List<Object[]> batchArgs){}
         //2. 准备参数
-        String sql = "INSERT INTO monster VALUES(?, ?, ?)";
+        String sql = "insert into monster (name, skill) values (?, ?);";
         List<Object[]> batchArgs = new ArrayList<>();
-        batchArgs.add(new Object[]{600, "老鼠精", "偷吃粮食"});
-        batchArgs.add(new Object[]{700, "老猫精", "抓老鼠"});
+        batchArgs.add(new Object[]{"老鼠精", "偷吃粮食"});
+        batchArgs.add(new Object[]{"老猫精", "抓老鼠"});
         //3. 调用
         //说明：返回结果是一个数组，每个元素对应上面的sql语句对表的影响记录数
         int[] ints = jdbcTemplate.batchUpdate(sql, batchArgs);
@@ -127,7 +127,7 @@ public class JdbcTemplateTest {
         //1. 确定API ： queryForObject()
         //public <T> T queryForObject(String sql, RowMapper<T> rowMapper, @Nullable Object... args)
         //2.准备参数
-        String sql = "SELECT id AS monsterId, NAME, skill FROM monster WHERE id = 100";
+        String sql = "SELECT id AS monsterId, NAME, skill FROM monster WHERE id = 600";
         //使用RowMapper 接口来对返回的数据，进行一个封装-》底层使用的反射->setter
         //这里有一个细节: 你查询的记录的表的字段需要和 Monster的对象字段名保持一致
         RowMapper<Monster> rowMapper = new BeanPropertyRowMapper<>(Monster.class);
