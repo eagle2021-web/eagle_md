@@ -1,7 +1,9 @@
 package com.hspedu.config;
 
-import java.util.List;
+import lombok.Data;
 
+import java.util.List;
+@Data
 public class MapperBean {
     private String interfaceName;
     private List<Function> functions;

@@ -6,8 +6,10 @@ import com.hspedu.hspmybatis.sqlsession.HspConfiguration;
 import com.hspedu.hspmybatis.sqlsession.HspExecutor;
 import com.hspedu.hspmybatis.sqlsession.HspSqlSession;
 import org.apache.ibatis.session.defaults.DefaultSqlSession;
+import org.dom4j.DocumentException;
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 
 /**
@@ -38,5 +40,11 @@ public class HspMyBatisTest {
         HspSqlSession hspSqlSession = new HspSqlSession();
         Object o = hspSqlSession.selectOne("select * from monster where id=?", 1);
         System.out.println(o);
+    }
+
+    @Test
+    public void readMapper() throws DocumentException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+        HspConfiguration hspConfiguration = new HspConfiguration();
+        hspConfiguration.readMapper("MonsterMapper.xml");
     }
 }

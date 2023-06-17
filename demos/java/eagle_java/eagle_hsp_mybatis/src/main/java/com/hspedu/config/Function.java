@@ -1,7 +1,9 @@
 package com.hspedu.config;
 
-import javax.print.DocFlavor;
+import lombok.Data;
 
+import javax.print.DocFlavor;
+@Data
 public class Function {
     private String sqlType; // sql类型， 比如select, insert, update, delete
     private String funcName;

@@ -1,14 +1,19 @@
 package com.hspedu.hspmybatis.sqlsession;
 
+import com.hspedu.config.Function;
+import com.hspedu.config.MapperBean;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author 韩顺平
@@ -104,4 +109,46 @@ public class HspConfiguration {
         return connection; //返回Connection
     }
 
+    /**
+     * 读取xxxMapper.xml能够创建MapperBean对象
+     * @param path 就是xml的路径 + 文件名，是从类的加载路径计算的
+     *             如果xxxMapper.xml文件是放在resources目录下，直接传入xml文件名即可
+     * @return
+     */
+    public MapperBean readMapper(String path) throws DocumentException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        MapperBean mapperBean = new MapperBean();
+        InputStream stream = loader.getResourceAsStream(path);
+        SAXReader saxReader = new SAXReader();
+        Document document = saxReader.read(stream);
+        Element rootElement = document.getRootElement();
+        System.out.println("root = ");
+        System.out.println(rootElement);
+        String namespace = rootElement.attributeValue("namespace").trim();
+        mapperBean.setInterfaceName(namespace);
+        Iterator iterator = rootElement.elementIterator();
+        ArrayList<Function> list = new ArrayList<>();
+        mapperBean.setFunctions(list);
+        while (iterator.hasNext()) {
+            // 取出一个子元素
+            Element next = (Element)iterator.next();
+            Function function = new Function();
+            String sqlType = next.getName().trim();
+            System.out.println(sqlType);
+            String resultType = next.attributeValue("resultType").trim();
+            String funcName = next.attributeValue("id").trim();
+            System.out.println(resultType);
+            String sql = next.getTextTrim();
+            function.setSqlType(sqlType);
+            function.setFuncName(funcName);
+            function.setResultType(resultType);
+            function.setSql(sql);
+
+            // 通过反射生成一个对象
+            Object newInstance = Class.forName(resultType).getConstructor().newInstance();
+            function.setResultType(newInstance);
+            list.add(function);
+        }
+        System.out.println(mapperBean);
+        return mapperBean;
+    }
 }
