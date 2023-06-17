@@ -16,6 +16,11 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.7</version>
+        </dependency>
         <!--引入dom4j-->
         <dependency>
             <groupId>dom4j</groupId>
