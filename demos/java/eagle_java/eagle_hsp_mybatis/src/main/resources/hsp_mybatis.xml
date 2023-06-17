@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <!--配置连接数据库的信息-->
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+<!--    <property name="url" value="jdbc:mysql://h131:3306/spring?useSSL=true&amp;requireSSL=true&amp;verifyServerCertificate=false"/>-->
+
+    <property name="url" value="jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&amp;requireSSL=true&amp;verifyServerCertificate=false" />
+    <property name="username" value="root"/>
+    <property name="password" value="123456"/>
+</database>
