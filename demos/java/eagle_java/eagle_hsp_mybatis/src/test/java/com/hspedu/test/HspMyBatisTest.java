@@ -1,10 +1,8 @@
 package com.hspedu.test;
 
 import com.hspedu.entity.Monster;
-import com.hspedu.hspmybatis.sqlsession.Executor;
-import com.hspedu.hspmybatis.sqlsession.HspConfiguration;
-import com.hspedu.hspmybatis.sqlsession.HspExecutor;
-import com.hspedu.hspmybatis.sqlsession.HspSqlSession;
+import com.hspedu.hspmybatis.sqlsession.*;
+import com.hspedu.mapper.MonsterMapper;
 import org.apache.ibatis.session.defaults.DefaultSqlSession;
 import org.dom4j.DocumentException;
 import org.junit.Test;
@@ -46,5 +44,24 @@ public class HspMyBatisTest {
     public void readMapper() throws DocumentException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
         HspConfiguration hspConfiguration = new HspConfiguration();
         hspConfiguration.readMapper("MonsterMapper.xml");
+    }
+
+    @Test
+    public void getMapper() {
+        HspSqlSession hspSqlSession = new HspSqlSession();
+        MonsterMapper mapper = hspSqlSession.getMapper(MonsterMapper.class);
+        System.out.println("mapper = " + mapper);
+        Monster monsterById = mapper.getMonsterById(1);
+        System.out.println(monsterById);
+    }
+
+    @Test
+    public void openSession() {
+        HspSqlSession hspSqlSession = HspSessionFactory.openSession();
+        MonsterMapper mapper = hspSqlSession.getMapper(MonsterMapper.class);
+        Monster monsterById = mapper.getMonsterById(1);
+        System.out.println("mapper = " + mapper.getClass());
+
+        System.out.println(monsterById);
     }
 }

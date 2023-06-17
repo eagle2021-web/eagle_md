@@ -93,10 +93,10 @@ public class HspConfiguration {
                     throw new RuntimeException("属性名没有匹配到...");
             }
         }
-        System.out.println(url);
-        System.out.println(username);
-        System.out.println(password);
-        System.out.println(driverClassName);
+//        System.out.println(url);
+//        System.out.println(username);
+//        System.out.println(password);
+//        System.out.println(driverClassName);
         Connection connection = null;
 
         try {
@@ -121,8 +121,6 @@ public class HspConfiguration {
         SAXReader saxReader = new SAXReader();
         Document document = saxReader.read(stream);
         Element rootElement = document.getRootElement();
-        System.out.println("root = ");
-        System.out.println(rootElement);
         String namespace = rootElement.attributeValue("namespace").trim();
         mapperBean.setInterfaceName(namespace);
         Iterator iterator = rootElement.elementIterator();
@@ -133,10 +131,10 @@ public class HspConfiguration {
             Element next = (Element)iterator.next();
             Function function = new Function();
             String sqlType = next.getName().trim();
-            System.out.println(sqlType);
+//            System.out.println(sqlType);
             String resultType = next.attributeValue("resultType").trim();
             String funcName = next.attributeValue("id").trim();
-            System.out.println(resultType);
+//            System.out.println(resultType);
             String sql = next.getTextTrim();
             function.setSqlType(sqlType);
             function.setFuncName(funcName);
@@ -148,7 +146,7 @@ public class HspConfiguration {
             function.setResultType(newInstance);
             list.add(function);
         }
-        System.out.println(mapperBean);
+//        System.out.println(mapperBean);
         return mapperBean;
     }
 }
