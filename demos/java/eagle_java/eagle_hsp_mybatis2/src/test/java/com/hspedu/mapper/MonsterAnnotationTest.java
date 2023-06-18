@@ -1,5 +1,6 @@
 package com.hspedu.mapper;
 
+import com.hspedu.entity.Monster;
 import com.hspedu.util.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Before;
@@ -18,5 +19,14 @@ public class MonsterAnnotationTest {
     @Test
     public void getMonsterById() {
         System.out.println(monsterAnnotation.getMonsterById(1));
+    }
+
+    @Test
+    public void addMonster() {
+        Monster monster = new Monster();
+        monster.setAge(12);
+        monster.setName("eagle0618");
+        monsterAnnotation.addMonster(monster);
+        System.out.println("返回的id = " + monster.getId());
     }
 }
