@@ -49,7 +49,8 @@
     2. 这里我们可以通过菜单 Path from source root
     -->
     <mappers>
-        <mapper resource="com/hspedu/mapper/MonsterMapper.xml"/>
-        <mapper class="com.hspedu.mapper.MonsterAnnotation"/>
+<!--        <mapper resource="com/hspedu/mapper/MonsterMapper.xml"/>-->
+        <package name="com.hspedu.mapper"/>
+<!--        <mapper class="com.hspedu.mapper.MonsterAnnotation"/>-->
     </mappers>
 </configuration>
