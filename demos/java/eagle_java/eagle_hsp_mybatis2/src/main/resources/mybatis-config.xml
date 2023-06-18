@@ -2,8 +2,9 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
 
+<configuration>
+    <properties resource="jdbc.properties"/>
     <!--配置MyBatis自带的日志输出-查看原生的sql-->
     <settings>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
@@ -17,13 +18,14 @@
 
     
     <environments default="development">
+
         <environment id="development">
             <!--配置事务管理器-->
             <transactionManager type="JDBC"/>
             <!--配置数据源-->
             <dataSource type="POOLED">
                 <!--配置驱动-->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${jdbc.driver}"/>
                 <!--配置连接mysql-url
                 老韩解读:
                 1. jdbc:mysql 协议
