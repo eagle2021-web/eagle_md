@@ -24,6 +24,7 @@
         <module>eagle_leetcode</module>
         <module>eagle_spring_test</module>
         <module>eagle_hsp_mybatis</module>
+        <module>eagle_hsp_mybatis2</module>
     </modules>
 
     <properties>
