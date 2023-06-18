@@ -44,7 +44,7 @@ public class MonsterMapperTest {
             monster.setBirthday(new Date());
             monster.setEmail("kate@qq.com");
             monster.setGender(1);
-            monster.setName("大象精-" + i);
+            monster.setName("大象精-");
             monster.setSalary(1000 + i * 10);
             monsterMapper.addMonster(monster);
 
@@ -122,6 +122,20 @@ public class MonsterMapperTest {
         if(sqlSession != null) {
             sqlSession.close();
         }
+        System.out.println("查询成功~");
+    }
+
+
+    @Test
+    public void getMonsterByIdOrName() {
+        Monster monster1 = new Monster();
+        monster1.setName("eagle0618");
+        monster1.setId(2);
+        Monster monster = monsterMapper.getMonsterByIdOrName(monster1);
+        if(sqlSession != null) {
+            sqlSession.close();
+        }
+        System.out.println(monster);
         System.out.println("查询成功~");
     }
 }

@@ -20,6 +20,6 @@ public interface MonsterAnnotation {
     @Insert("INSERT INTO `monster`\n" +
             "(`age`, `birthday`, `email`, `gender`, `name`, `salary`)\n" +
             "VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+//    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void addMonster(Monster monster);
 }

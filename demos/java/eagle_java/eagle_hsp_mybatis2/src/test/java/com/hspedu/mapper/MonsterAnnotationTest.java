@@ -3,6 +3,7 @@ package com.hspedu.mapper;
 import com.hspedu.entity.Monster;
 import com.hspedu.util.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,5 +29,10 @@ public class MonsterAnnotationTest {
         monster.setName("eagle0618");
         monsterAnnotation.addMonster(monster);
         System.out.println("返回的id = " + monster.getId());
+    }
+
+    @After
+    public void commit() {
+        sqlSession.commit(true);
     }
 }

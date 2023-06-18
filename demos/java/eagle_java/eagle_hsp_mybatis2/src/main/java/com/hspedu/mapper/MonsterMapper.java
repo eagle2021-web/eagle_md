@@ -30,4 +30,6 @@ public interface MonsterMapper {
 
     //查询所有的Monster
     public List<Monster> findAllMonster();
+
+    Monster getMonsterByIdOrName(Monster monster);
 }

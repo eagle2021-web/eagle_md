@@ -51,4 +51,8 @@
     <select id="findAllMonster" resultType="Monster">
         SELECT * FROM `monster`
     </select>
+
+    <select id="getMonsterByIdOrName" resultType="Monster" parameterType="Monster">
+        SELECT * FROM `monster` WHERE id = #{id} OR name = #{name} limit 1;
+    </select>
 </mapper>
