@@ -12,7 +12,8 @@
 
     <!--配置别名-->
     <typeAliases>
-        <typeAlias type="com.hspedu.entity.Monster" alias="Monster"/>
+<!--        <typeAlias type="com.hspedu.entity.Monster" alias="Monster"/>-->
+        <package name="com.hspedu.entity"/>
     </typeAliases>
 
 
