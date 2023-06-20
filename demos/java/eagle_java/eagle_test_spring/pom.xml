@@ -9,11 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>eagle_spring_test</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>test_mysql</module>
-    </modules>
+    <artifactId>eagle_test_spring</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -23,6 +19,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <!-- Spring MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
         </dependency>
 
         <dependency>

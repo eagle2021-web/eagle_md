@@ -22,9 +22,9 @@
         <module>eagle_mongodb</module>
         <module>eagle_redis</module>
         <module>eagle_leetcode</module>
-        <module>eagle_spring_test</module>
         <module>eagle_hsp_mybatis</module>
         <module>eagle_hsp_mybatis2</module>
+        <module>eagle_test_spring</module>
     </modules>
 
     <properties>

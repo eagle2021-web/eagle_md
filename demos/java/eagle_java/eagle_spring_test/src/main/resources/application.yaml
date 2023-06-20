@@ -1,4 +1,0 @@
-server:
-  port: 8999 # 服务端口
-  servlet:
-    context-path: /test

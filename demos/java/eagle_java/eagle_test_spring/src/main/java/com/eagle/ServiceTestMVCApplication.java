@@ -10,9 +10,9 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 //(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @ServletComponentScan("com.eagle")
-public class ServiceApplication {
+public class ServiceTestMVCApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceApplication.class, args);
+        SpringApplication.run(ServiceTestMVCApplication.class, args);
     }
 }
