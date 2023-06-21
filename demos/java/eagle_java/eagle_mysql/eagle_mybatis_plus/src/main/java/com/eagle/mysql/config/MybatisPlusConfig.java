@@ -27,7 +27,7 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
-    
+
     @SuppressWarnings("all")
     @Profile("dev")
     @Bean(destroyMethod = "close")
