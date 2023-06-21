@@ -18,8 +18,9 @@ public class TacoService {
 
     public void add() {
         Taco taco = new Taco();
+        taco.setId("5492dd76b9501637d05d8cd12120");
         taco.setCreatedAt(new Date());
-        taco.setName("tmp1212");
+        taco.setName("111111");
         taco.addIngredient(new Ingredient(null, "tmp_name", Ingredient.Type.CHEESE));
         System.out.println(tacoRepository.save(taco));
     }

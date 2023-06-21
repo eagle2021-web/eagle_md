@@ -2,20 +2,21 @@ package com.eagle.mongodb.controller;
 
 import com.eagle.mongodb.service.TacoService;
 import com.eagle.mongodb.service.IngredientService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping("/taco")
 public class AController {
-    @Autowired
+    @Resource
     private TacoService tacoService;
 
-    @Autowired
+    @Resource
     private IngredientService ingredientService;
+
     @GetMapping("/add")
     public String add() {
         tacoService.add();

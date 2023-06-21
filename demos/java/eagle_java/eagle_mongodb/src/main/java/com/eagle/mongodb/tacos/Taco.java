@@ -6,6 +6,7 @@ import java.util.List;
 
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Size;
@@ -14,6 +15,8 @@ import javax.validation.constraints.NotNull;
 @Data
 @Document(collection = "taco")
 public class Taco{
+    @Id
+    private String id;
 
     @NotNull
     @Size(min = 5, message = "Name must be at least 5 characters long")

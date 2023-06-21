@@ -4,7 +4,7 @@ server:
 spring:
   data:
     mongodb:
-      host: localhost
+      host: h131
       port: 27017
       database: test
       auto-index-creation: true
