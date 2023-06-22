@@ -1,7 +1,5 @@
 package com.eagle.mongodb;
 
-import com.eagle.common.result.R;
-import lombok.Data;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;

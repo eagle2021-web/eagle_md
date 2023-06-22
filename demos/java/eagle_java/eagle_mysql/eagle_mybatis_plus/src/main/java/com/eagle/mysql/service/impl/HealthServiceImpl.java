@@ -11,6 +11,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Method;
+import java.util.function.Function;
 
 /**
  * <p>
@@ -22,6 +24,7 @@ import javax.annotation.Resource;
  */
 @Service
 public class HealthServiceImpl extends ServiceImpl<HealthMapper, Health> implements HealthService {
+
     @Resource
     private HealthMapper healthMapper;
 
@@ -30,6 +33,7 @@ public class HealthServiceImpl extends ServiceImpl<HealthMapper, Health> impleme
 //        LambdaQueryWrapper<Health> qw = Wrappers.<Health>lambdaQuery()
 //                .select(Health::getId, Health::getName)
 //                .eq(Health::getId, id);
+//        String fieldName = getFieldName(Health::getName);
         QueryWrapper<Health> qw = new QueryWrapper<Health>().eq("id", id);
         return healthMapper.selectOne(qw);
     }

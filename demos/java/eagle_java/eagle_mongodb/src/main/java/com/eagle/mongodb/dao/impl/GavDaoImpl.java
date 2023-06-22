@@ -6,11 +6,16 @@ import com.eagle.mongodb.entity.Gav;
 import com.eagle.mongodb.tacos.Ingredient;
 import com.eagle.mongodb.tacos.Taco;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
+
+import static org.springframework.data.mongodb.core.query.Criteria.where;
+
 @Component
 public class GavDaoImpl implements GavDao {
     public static String COL_GAV = "GAV222";
@@ -30,5 +35,11 @@ public class GavDaoImpl implements GavDao {
     public void saveOne(Gav gav) {
         mongoTemplate.save(gav, COL_GAV);
     }
+
+    @Override
+    public void saveByGav(Gav gav) {
+
+    }
+
 
 }
