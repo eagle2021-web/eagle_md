@@ -19,6 +19,7 @@ public class AController {
 
     @GetMapping("/add")
     public String add() {
+        // http://localhost:8001/taco/add
         tacoService.add();
         return "Ok";
     }

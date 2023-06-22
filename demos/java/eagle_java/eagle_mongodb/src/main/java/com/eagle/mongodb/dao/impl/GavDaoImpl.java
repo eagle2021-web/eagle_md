@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 @Component
 public class GavDaoImpl implements GavDao {
-    public static String COL_GAV = "GAV";
+    public static String COL_GAV = "GAV222";
     @Resource
     private GavRepository gavRepository;
 

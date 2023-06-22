@@ -22,6 +22,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(classes = ServiceMongodbApplication.class)
 @AutoConfigureMockMvc
 public class TestMVC {
+    private MvcResult postJson(String s, String relURL) throws Exception {
+        ResultActions resultActions = mockMvc.perform(
+                        MockMvcRequestBuilders
+                                .post(relURL)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(s)
+                )
+                .andExpect(MockMvcResultMatchers.status().isOk());
+        return resultActions.andReturn();
+    }
 
     @Resource
     private MockMvc mockMvc;
@@ -37,6 +47,7 @@ public class TestMVC {
         String ret = mvcResult.getResponse().getContentAsString();
         System.out.println(ret);
     }
+
     @Test
     public void saveGav() throws Exception {
         Gav gav1 = new Gav();
@@ -45,18 +56,14 @@ public class TestMVC {
         Gav gav2 = new Gav();
         gav2.setDependencies(new ArrayList<>());
         gav2.getDependencies().add(gav1);
-        gav2.setUid("1221");
+        gav2.setGroupId("112");
+        gav2.setArtifactId("23");
+        String id = "122124";
+        gav2.setUid(id);
         String jsonContent = new ObjectMapper().writeValueAsString(gav2);
-        ResultActions resultActions = mockMvc.perform(
-                        MockMvcRequestBuilders
-                                .post("/gav/saveOne")
-                                .contentType(MediaType.APPLICATION_JSON)
-                                .content(jsonContent)
-                )
-                .andExpect(MockMvcResultMatchers.status().isOk());
-        MvcResult mvcResult = resultActions.andReturn();
+        MvcResult mvcResult = postJson(jsonContent, "/gav/saveOne");
         String ret = mvcResult.getResponse().getContentAsString();
-        String exp = "{\"code\":0,\"message\":null,\"data\":\"1221\"}";
+        String exp = "{\"code\":0,\"message\":null,\"data\":\"" + id + "\"}";
         assertEquals(ret, exp);
     }
 }
