@@ -1,0 +1,2 @@
+GET /nexus/content/groups/public/ HTTP/1.1
+Host: repository.jboss.org

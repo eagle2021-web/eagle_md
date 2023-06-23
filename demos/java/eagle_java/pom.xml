@@ -26,6 +26,9 @@
         <module>eagle_hsp_mybatis2</module>
         <module>eagle_test_spring</module>
         <module>eagle_mysql/eagle_mybatis_plus</module>
+        <module>eagle_open_feign</module>
+        <module>eagle_crawl</module>
+        <module>spring_mogodb_doc</module>
     </modules>
 
     <properties>
