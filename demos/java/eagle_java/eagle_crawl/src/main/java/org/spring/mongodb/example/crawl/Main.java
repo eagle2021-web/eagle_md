@@ -1,12 +1,14 @@
 package org.spring.mongodb.example.crawl;
 
 
+import com.google.common.io.Files;
 import okhttp3.*;
 
 import java.io.*;
 import java.nio.CharBuffer;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 class A {
 
@@ -48,6 +50,10 @@ public class Main {
                 sb.append(bytes, 0, cnt);
             }
             System.out.println(sb);
+            File outputFile = new File("output.json");
+
+            // 使用Guava库写入JSON字符串到文件
+            Files.write(sb.toString().getBytes(StandardCharsets.UTF_8), outputFile);
         }
     }
 }
