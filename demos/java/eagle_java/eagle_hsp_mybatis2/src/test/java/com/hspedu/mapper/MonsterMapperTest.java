@@ -5,6 +5,8 @@ import com.hspedu.util.MyBatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 import java.util.List;
@@ -17,6 +19,7 @@ public class MonsterMapperTest {
     //属性
     private SqlSession sqlSession;
     private MonsterMapper monsterMapper;
+    Logger log = LoggerFactory.getLogger(MonsterMapperTest.class);
 
     /**
      * 老师解读
@@ -26,6 +29,7 @@ public class MonsterMapperTest {
     //编写方法完成初始化
     @Before
     public void init() {
+
         //获取到sqlSession
         sqlSession = MyBatisUtils.getSqlSession();
         //获取到到MonsterMapper对象 class com.sun.proxy.$Proxy7 代理对象
@@ -37,7 +41,7 @@ public class MonsterMapperTest {
 
     @Test
     public void addMonster() {
-
+        log.info("dsafsdf");
         for (int i = 0; i < 2; i++) {
             Monster monster = new Monster();
             monster.setAge(10 + i);

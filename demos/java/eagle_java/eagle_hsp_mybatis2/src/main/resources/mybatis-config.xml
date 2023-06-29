@@ -14,6 +14,7 @@
     <typeAliases>
 <!--        <typeAlias type="com.hspedu.entity.Monster" alias="Monster"/>-->
         <package name="com.hspedu.entity"/>
+
     </typeAliases>
 
 
@@ -38,12 +39,13 @@
                 7. characterEncoding=UTF-8 指定使用utf-8, 防止中文乱码
                 8. 老韩温馨提示：不要背，直接使用即可
                 -->
-                <property name="url" value="jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&amp;requireSSL=true&amp;verifyServerCertificate=false"/>
-                <property name="username" value="root"/>
-                <property name="password" value="123456"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
+
     <!--老师说明
     1. 这里我们配置需要关联的Mapper.xml
     2. 这里我们可以通过菜单 Path from source root
