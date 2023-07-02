@@ -93,10 +93,12 @@ public class MybatisPlusConfig {
         factoryBean.setMapperLocations(resolver.getResources("classpath:com/eagle/mysql/mapper/xml/*.xml"));
         factoryBean.setGlobalConfig(globalConfig);
 
-        org.apache.ibatis.session.Configuration cfg = factoryBean.getObject().getConfiguration();
-        TypeAliasRegistry registry = cfg.getTypeAliasRegistry();
-        registry.registerAliases("com.eagle.mysql.pojo.entity");
+//        org.apache.ibatis.session.Configuration cfg = factoryBean.getObject().getConfiguration();
+//        TypeAliasRegistry registry = cfg.getTypeAliasRegistry();
+//        registry.registerAliases("com.eagle.mysql.pojo.entity");
 //        registry.registerAlias("Monster", com.eagle.mysql.pojo.entity.Monster.class);
+
+//        factoryBean.setConfiguration(cfg);
         return factoryBean.getObject();
     }
 }

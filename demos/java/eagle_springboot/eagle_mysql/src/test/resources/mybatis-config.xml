@@ -8,7 +8,8 @@
 
     <typeAliases>
         <!-- 配置实体类的类型别名 -->
-        <typeAlias type="com.eagle.mysql.pojo.entity.Monster" alias="Monster"/>
+<!--        <typeAlias type="com.eagle.mysql.pojo.entity.Monster" alias="Monster"/>-->
+        <package name="com.eagle.mysql.pojo.entity"/>
     </typeAliases>
 
     <!-- 其他配置项 -->

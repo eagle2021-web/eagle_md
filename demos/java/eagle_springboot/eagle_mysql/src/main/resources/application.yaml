@@ -17,6 +17,7 @@ logging:
   level:
     root: trace
 #mybatis-plus:
+#  typeAliasesPackage: com.eagle.mysql.pojo.entity
 #  global-config:
 #    db-config:
 #      logic-delete-field: flag # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)

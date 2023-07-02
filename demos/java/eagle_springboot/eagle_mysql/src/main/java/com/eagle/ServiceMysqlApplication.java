@@ -2,6 +2,7 @@ package com.eagle;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
@@ -22,6 +23,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 //(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @ServletComponentScan("com.eagle")
+//@EntityScan("com.eagle.mysql.pojo.entity")
 //@MapperScan(basePackages = "com.eagle.mysql.mapper.xml")
 public class ServiceMysqlApplication {
 
