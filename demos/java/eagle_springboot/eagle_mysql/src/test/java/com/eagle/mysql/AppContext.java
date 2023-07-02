@@ -6,10 +6,14 @@ import com.eagle.mysql.dao.impl.MonsterDaoImpl;
 import com.eagle.mysql.mapper.MonsterMapper;
 import com.eagle.mysql.pojo.entity.Monster;
 import com.eagle.mysql.service.IMonsterService;
+import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.TypeAliasRegistry;
 import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
@@ -28,12 +32,13 @@ public class AppContext {
     @BeforeAll
     public static void before(){
         ioc = new GenericXmlApplicationContext();
+
+
         ConfigurableEnvironment environment = ioc.getEnvironment();
         environment.setActiveProfiles("dev");
         ioc.setEnvironment(environment);
-        ioc.load("abc.xml");
+        ioc.load( "abc.xml");
         ioc.refresh();
-
     }
 
     public static void main(String[] args) {
@@ -41,7 +46,7 @@ public class AppContext {
         ConfigurableEnvironment environment = ioc.getEnvironment();
         environment.setActiveProfiles("dev");
         ioc.setEnvironment(environment);
-        ioc.load("abc.xml");
+        ioc.load( "abc.xml");
         ioc.refresh();
         MonsterMapper monsterMapper = ioc.getBean("monsterMapper", MonsterMapper.class);
         Monster monster = new Monster();

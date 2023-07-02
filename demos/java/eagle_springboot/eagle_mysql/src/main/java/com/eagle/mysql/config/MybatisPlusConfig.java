@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.TypeAliasRegistry;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -91,6 +92,11 @@ public class MybatisPlusConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         factoryBean.setMapperLocations(resolver.getResources("classpath:com/eagle/mysql/mapper/xml/*.xml"));
         factoryBean.setGlobalConfig(globalConfig);
+
+        org.apache.ibatis.session.Configuration cfg = factoryBean.getObject().getConfiguration();
+        TypeAliasRegistry registry = cfg.getTypeAliasRegistry();
+        registry.registerAliases("com.eagle.mysql.pojo.entity");
+//        registry.registerAlias("Monster", com.eagle.mysql.pojo.entity.Monster.class);
         return factoryBean.getObject();
     }
 }
