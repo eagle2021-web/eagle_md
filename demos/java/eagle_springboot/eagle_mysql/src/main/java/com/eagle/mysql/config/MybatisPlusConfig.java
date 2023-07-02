@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -51,7 +51,7 @@ public class MybatisPlusConfig {
 
         dataSource.setPassword(password);
         dataSource.setInitialSize(20);
-        dataSource.setMaxActive(30);
+        dataSource.setMaxConnLifetimeMillis(30000);
         return dataSource;
     }
 
@@ -70,7 +70,7 @@ public class MybatisPlusConfig {
 
         dataSource.setPassword(password);
         dataSource.setInitialSize(20);
-        dataSource.setMaxActive(30);
+        dataSource.setMaxConnLifetimeMillis(30000);
         return dataSource;
     }
 

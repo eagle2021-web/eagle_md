@@ -6,4 +6,12 @@
             (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
         VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary})
     </insert>
+<!--    库commons-dbcp2  -->
+    <select id="findMonsterByAge" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="Integer">
+        SELECT * FROM `monster` WHERE 1=1
+        <!--    age参数  -->
+        <if test="age != null and age >= 1">
+            AND monster.age &gt;= #{age}
+        </if>
+    </select>
 </mapper>

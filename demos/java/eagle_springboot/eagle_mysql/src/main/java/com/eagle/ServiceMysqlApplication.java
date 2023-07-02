@@ -1,6 +1,5 @@
 package com.eagle;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
@@ -23,7 +22,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 //(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @ServletComponentScan("com.eagle")
-@MapperScan(basePackages = "com.eagle.mysql.mapper.xml")
+//@MapperScan(basePackages = "com.eagle.mysql.mapper.xml")
 public class ServiceMysqlApplication {
 
     public static void main(String[] args) {

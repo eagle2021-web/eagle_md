@@ -4,7 +4,6 @@ import com.eagle.mysql.mapper.MonsterMapper;
 import com.eagle.mysql.pojo.entity.Monster;
 import com.eagle.mysql.service.IMonsterService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,7 +20,7 @@ import javax.annotation.Resource;
 @RequestMapping("/monster")
 @Slf4j
 public class MonsterController {
-    @Resource
+    @Resource(name = "monsterServiceImpl")
     private IMonsterService iMonsterService;
     @Resource
     private MonsterMapper monsterMapper;
