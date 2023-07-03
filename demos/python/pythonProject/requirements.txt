@@ -1,3 +1,6 @@
 requests
 tqdm
 urllib3
+pymysql
+cryptography
+SQLAlchemy

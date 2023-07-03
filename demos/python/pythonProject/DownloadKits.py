@@ -40,16 +40,29 @@ class TestA(TestCase):
 class DownloadKits:
 
     @classmethod
-    def download_by_requests(cls, url: str):
+    def download_by_requests(cls, url: str, num_segments=4):
         mod = HttpMod.parse_url(url)
-        response = requests.get(url, stream=True)
+        response = requests.head(url)
         total_size = int(response.headers.get("Content-Length"))
+        segment_size = total_size // num_segments
+        print(total_size)
+        print(segment_size)
         progress_bar = tqdm(total=total_size, unit="B", unit_scale=True)
         if response.status_code == 200:
             with open(mod.filename, 'wb') as file:
-                for chunk in response.iter_content(1024):
-                    file.write(chunk)
-                    progress_bar.update(len(chunk))
+                for i in range(num_segments):
+                    start_byte = i * segment_size
+                    end_byte = start_byte + segment_size - 1 if i < num_segments - 1 else ''
+                    print('----')
+                    print(start_byte)
+                    print(end_byte)
+                    headers = {"Range": f"bytes={start_byte}-{end_byte}"}
+                    response = requests.get(url, headers=headers, stream=True)
+
+                    for chunk in response.iter_content(1024):
+                        file.write(chunk)
+                        progress_bar.update(len(chunk))
+
             print('文件下载完成')
         else:
             print('文件下载失败')
