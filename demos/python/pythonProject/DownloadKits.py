@@ -1,3 +1,4 @@
+import datetime
 import http.client
 from pathlib import Path
 from typing import Union
@@ -6,6 +7,7 @@ from urllib.parse import urlparse
 import requests
 import urllib3
 from tqdm import tqdm
+from time import localtime
 
 
 class HttpMod:
@@ -48,6 +50,11 @@ class DownloadKits:
         print(total_size)
         print(segment_size)
         progress_bar = tqdm(total=total_size, unit="B", unit_scale=True)
+        # 获取当前本地时间
+        local_time = datetime.datetime.now()
+
+        # 打印本地时间
+        print(local_time)
         if response.status_code == 200:
             with open(mod.filename, 'wb') as file:
                 for i in range(num_segments):
@@ -66,7 +73,10 @@ class DownloadKits:
             print('文件下载完成')
         else:
             print('文件下载失败')
+        local_time = datetime.datetime.now()
 
+        # 打印本地时间
+        print(local_time)
     @classmethod
     def download_by_http_client(cls, url: str):
         mod = HttpMod.parse_url(url)
