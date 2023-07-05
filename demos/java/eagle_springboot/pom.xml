@@ -11,6 +11,8 @@
     <modules>
         <module>eagle_mysql</module>
         <module>eagle_java_base</module>
+        <module>eagle_generator</module>
+        <module>gen_maven</module>
     </modules>
 
     <properties>

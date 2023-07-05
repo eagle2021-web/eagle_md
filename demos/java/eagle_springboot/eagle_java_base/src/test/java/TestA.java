@@ -41,6 +41,7 @@ public class TestA {
             System.out.println(content);
 //            Property1_0Beta property = JSONObject.parseObject(content, Property1_0Beta.class);
             PropertyAbs property = JSONObject.parseObject(content, PropertyAbs.class);
+            System.out.println("------");
             System.out.println(property);
             System.out.println("------");
             property = JSONObject.parseObject(content, Property1_2.class);

@@ -1,0 +1,15 @@
+server:
+  port: 8083 # 服务端口
+  servlet:
+    context-path: /generator
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: service-generator # 服务名
+  datasource: # mysql数据库连接
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&requireSSL=true&verifyServerCertificate=false&characterEncoding=UTF-8
+    username: root
+    password: "123456" # 需要配置环境变量MYSQL_PASSWORD
