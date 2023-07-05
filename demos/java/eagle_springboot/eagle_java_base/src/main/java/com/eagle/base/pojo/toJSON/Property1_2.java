@@ -17,6 +17,13 @@ public class Property1_2 implements PropertyAbs{
         name = _name;
     }
 
+    public void setKey(String key) {
+        this.name = key;
+    }
+    public String getKey(){
+        return this.name;
+    }
+
     @Override
     public String getValue() {
         return value;

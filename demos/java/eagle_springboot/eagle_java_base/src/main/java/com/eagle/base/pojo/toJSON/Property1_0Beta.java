@@ -27,4 +27,22 @@ public class Property1_0Beta implements PropertyAbs{
     public void setValue(String _value) {
         value = _value;
     }
+
+    @Override
+    public void setKey(String key) {
+
+    }
+
+    @Override
+    public String getKey() {
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Property1_0Beta{" +
+                "name='" + name + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

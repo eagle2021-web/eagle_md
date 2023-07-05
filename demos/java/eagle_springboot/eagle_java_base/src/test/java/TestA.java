@@ -19,6 +19,7 @@ public class TestA {
             String content = IOUtils.toString(stream, StandardCharsets.UTF_8);
 //            Property1_0Beta property = JSONObject.parseObject(content, Property1_0Beta.class);
             PropertyAbs property = JSONObject.parseObject(content, PropertyAbs.class);
+            System.out.println(property);
             System.out.println(property.getClass());
             System.out.println(property.getName());
             // 使用转换后的字符串进行操作
@@ -37,10 +38,14 @@ public class TestA {
         try {
             assert stream != null;
             String content = IOUtils.toString(stream, StandardCharsets.UTF_8);
+            System.out.println(content);
 //            Property1_0Beta property = JSONObject.parseObject(content, Property1_0Beta.class);
             PropertyAbs property = JSONObject.parseObject(content, PropertyAbs.class);
             System.out.println(property);
             System.out.println("------");
+            property = JSONObject.parseObject(content, Property1_2.class);
+            System.out.println(property);
+            System.out.println("-------");
             System.out.println(property.getClass());
             System.out.println(property.getName());
             // 使用转换后的字符串进行操作
