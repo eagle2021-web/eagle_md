@@ -119,7 +119,11 @@
     </dependency>
     <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
 
-
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>fastjson</artifactId>
+        <version>1.2.78</version>
+    </dependency>
 </dependencies>
 ```
 
