@@ -70,7 +70,6 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.3</version>
         </dependency>
-
         <!--mybatis-plus 代码生成器-->
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator -->
         <dependency>
@@ -78,7 +77,6 @@
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.5.3.1</version>
         </dependency>
-
         <!-- Mybatis Plus 代码生成器模板引擎,  -->
         <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
         <dependency>
@@ -86,8 +84,6 @@
             <artifactId>velocity-engine-core</artifactId>
             <version>2.3</version>
         </dependency>
-
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -143,7 +139,6 @@
             <artifactId>spring-boot-maven-plugin</artifactId>
             <version>3.1.1</version>
         </dependency>
-
 
     </dependencies>
     <build>

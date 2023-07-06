@@ -18,8 +18,7 @@ docker exec -it --name cwy_post psql -U postgres
 在这个例子中，"-U postgres" 表示当前我们将使用 "postgres" 用户名连接到数据库实例。如果成功运行，则您应该可以看到一个由 Postgres 提示符组成的新命令行窗口。
 这样你就可以在本地计算机上安装和使用一个 PostgreSQL Docker 实例了！
 
-
-以下是 docker run 命令中各个参数的说明，按照在命令中出现的顺序进行讲解：
+以下是docker run 命令中各个参数的说明，按照在命令中出现的顺序进行讲解：
 
 --name cwy_post: 指定要创建的容器名称为 cwy_post。
 -e POSTGRES_PASSWORD=123456: 设置 PostgreSQL 容器内设置一个环境变量 POSTGRES_PASSWORD 的值为 123456。这个变量就是数据库管理员超级用户的密码。注意：生产环境中不应该使用简单的密码。
