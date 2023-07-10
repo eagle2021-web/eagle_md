@@ -10,6 +10,7 @@ import requests
 import urllib3
 from tqdm import tqdm
 from time import localtime
+import sys
 
 lock = threading.Lock()
 
@@ -233,7 +234,8 @@ class TestDownload(TestCase):
         DownloadKits.send_head_request(self.url)
 
     def test_download_file(self):
-        download_file('https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1', num_threads=4)
+        download_file('https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1',
+                      num_threads=4)
 
     def test_log(self):
         from tqdm import tqdm
@@ -278,3 +280,19 @@ class TestDownload(TestCase):
 
     def test_download_pool(self):
         DownloadKits.download_by_pool(self.url)
+
+
+
+if sys.stdout.encoding != 'UTF-8':
+    sys.stdout = open(sys.stdout.fileno(), 'w', encoding='UTF-8', closefd=False)
+if sys.stderr.encoding != 'UTF-8':
+    sys.stderr = open(sys.stderr.fileno(), 'w', encoding='UTF-8', closefd=False)
+
+
+class MyTestCase(unittest.TestCase):
+    def setUp(self):
+        super().setUp()
+
+    def test_something(self):
+        # 测试逻辑...
+        print(12)
