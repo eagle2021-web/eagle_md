@@ -91,6 +91,7 @@ class MysqlKits:
 
         # 更新记录
         if monster_to_update:
+            print(monster_to_update.name)
             monster_to_update.name = "python"
             monster_to_update.age = 29
             # 继续设置其他需要更新的列
