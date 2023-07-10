@@ -11,6 +11,52 @@ import urllib3
 from tqdm import tqdm
 from time import localtime
 
+lock = threading.Lock()
+
+
+def download_chunk(url, start, end, file):
+    headers = {'Range': f'bytes={start}-{end}'}
+    res = requests.get(url, headers=headers, stream=True)
+    for chunk in res.iter_content(chunk_size=1024):
+        if chunk:
+            file.write(chunk)
+
+
+def download_file(url, num_threads=4):
+    res = requests.head(url)
+    total_size = int(res.headers.get('Content-Length', 0))
+    chunk_size = total_size // num_threads
+
+    with open('myfile.zip', 'wb') as file:
+        threads = []
+        for i in range(num_threads):
+            start = i * chunk_size
+            end = (i + 1) * chunk_size - 1 if i < num_threads - 1 else ''
+            thread = threading.Thread(target=download_chunk, args=(url, start, end, file))
+            threads.append(thread)
+            thread.start()
+
+        for thread in threads:
+            thread.join()
+
+    print("Download complete!")
+
+
+# 调用函数并传入要下载的文件URL和使用的线程数
+
+def create_directory(abs_dir):
+    # 获取锁
+    lock.acquire()
+    try:
+        if not Path(abs_dir).exists():
+            Path(abs_dir).mkdir(parents=True)
+            print(f"目录 {abs_dir} 创建成功")
+        else:
+            print(f"目录 {abs_dir} 已存在")
+    finally:
+        # 释放锁
+        lock.release()
+
 
 class HttpMod:
     def __init__(self, **kwargs):
@@ -77,13 +123,11 @@ class DownloadKits:
     def download_by_http_client(cls, url: str, rel_dir: Union[Path, str] = 'abc'):
         mod = HttpMod.parse_url(url)
         abs_dir = Path(os.path.abspath(rel_dir))
-        if not Path(abs_dir).exists():
-            abs_dir.mkdir(parents=True)
+        create_directory(abs_dir)
         abs_file = abs_dir.joinpath(mod.filename)
         size = 0
         if abs_file.exists():
             size = os.path.getsize(abs_file)
-            print(size)
         print(f"初始文件大小为: {size} 字节")
         conn = http.client.HTTPSConnection(mod.host)
         payload = ''
@@ -130,16 +174,36 @@ class DownloadKits:
         response.release_conn()
         print("下载完成")
 
+    @classmethod
+    def send_head_request(cls, url):
+        parsed_url = urlparse(url)
+        conn = http.client.HTTPSConnection(parsed_url.netloc)
+        conn.connect()
+        conn.request("HEAD", parsed_url.path + "?" + parsed_url.query)
+        response = conn.getresponse()
+        print("Status:", response.status)
+        print("Headers:")
+        for header in response.getheaders():
+            print(header[0], ":", header[1])
+        conn.close()
+
 
 def task2():
     url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
-    DownloadKits.download_by_http_client(url, 'abc2')
+    DownloadKits.download_by_http_client(url, 'abc3')
     print('2')
+
 
 def task1():
     url = 'https://www.zenodo.org/record/8104287/files/python-pillow/Pillow-10.0.0.zip?download=1'
-    DownloadKits.download_by_http_client(url, 'abc2')
+    DownloadKits.download_by_http_client(url, 'abc3')
     print('1')
+
+
+def task3():
+    url = 'https://www.zenodo.org/record/8040203/files/go-release-archive.tgz?download=1'
+    DownloadKits.download_by_http_client(url, 'abc3')
+    print('3')
 
 
 # 创建并启动第一个线程
@@ -165,6 +229,12 @@ class TestDownload(TestCase):
     def setUp(self) -> None:
         self.url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
 
+    def test_head(self):
+        DownloadKits.send_head_request(self.url)
+
+    def test_download_file(self):
+        download_file('https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1', num_threads=4)
+
     def test_log(self):
         from tqdm import tqdm
         import time
@@ -176,6 +246,7 @@ class TestDownload(TestCase):
 
         # 输出完成信息
         print("任务完成")
+
     def testaaaaaa(self):
         thread1 = threading.Thread(target=task1)
         thread1.start()
@@ -183,21 +254,24 @@ class TestDownload(TestCase):
         # 创建并启动第二个线程
         thread2 = threading.Thread(target=task2)
         thread2.start()
-
+        thread3 = threading.Thread(target=task3)
+        thread3.start()
         # 主线程继续执行其他任务
         print("This is the main thread.")
 
         # 等待两个线程结束
         thread1.join()
         thread2.join()
+        thread3.join()
         print("Main thread is done.")
+
     def test_download_by_client(self):
         url = 'https://www.zenodo.org/record/8104287/files/python-pillow/Pillow-10.0.0.zip?download=1'
         DownloadKits.download_by_http_client(url)
 
     def test_download_by_client2(self):
         url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
-        DownloadKits.download_by_http_client(url, 'abc')
+        DownloadKits.download_by_http_client(url, 'abc11')
 
     def test_download_by_request(self):
         DownloadKits.download_by_requests(self.url)
