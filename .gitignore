@@ -2,3 +2,4 @@ demos/**/cmake-build-debug
 demos/rust/eagle_rust/.idea
 **/.idea/
 **/target
+**/__pycache__/
