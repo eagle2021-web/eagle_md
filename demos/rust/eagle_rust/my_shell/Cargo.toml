@@ -20,7 +20,7 @@ num_cpus = "1.13.1"
 rayon = "1.5.3"
 test_cfg = {path = "../test_cfg"}
 chrono = "0.4.22"
-
+zip = "0.6.4"
 [[bin]]
 name = "doc_rust"
 [[bin]]
@@ -33,3 +33,7 @@ name = "suf_len"
 name = "ccc"
 [[bin]]
 name = "cnt_size"
+[[bin]]
+name = "unpack"
+[[bin]]
+name = "kwargs"
