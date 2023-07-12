@@ -25,6 +25,7 @@ def print_hi(name):
         # 处理命令执行错误情况
         print(f"Command failed with return code {e.returncode}: {e.stderr}")
 
+
 def print_hi2(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
