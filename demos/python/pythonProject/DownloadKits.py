@@ -133,7 +133,8 @@ class DownloadKits:
         print(f"初始文件大小为: {size} 字节")
         conn = http.client.HTTPSConnection(mod.host)
         payload = ''
-        headers = {f"Range": f"bytes={size}-"}
+        # headers = {f"Range": f"bytes={size}-", "token": "jkimTZgh0nrodaaHgBXcjUbeF1syYQ3P7keSu2AVHSNiufrE5ynJR8avnzPU"}
+        headers = {f"Range": f"bytes={size}-", "token": "111111111"}
         conn.request("GET", mod.rest_url, payload, headers)
         res = conn.getresponse()
         total_size = int(res.headers.get("Content-Length"))  # 获取文件总大小

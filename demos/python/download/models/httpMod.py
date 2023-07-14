@@ -2,7 +2,9 @@
 # coding: utf8
 
 import unittest
-from urllib.parse import urlparse
+import urllib
+from urllib.parse import urlparse, unquote
+
 
 class HttpMod:
     def __init__(self, **kwargs) -> None:
@@ -10,15 +12,20 @@ class HttpMod:
         self.path = kwargs.get("path")
         self.rest_url = kwargs.get("rest_url")
         self.query = kwargs.get("query")
+        self.filename = kwargs.get("filename")
+
     @classmethod
     def parse_url(cls, url: str):
         parsed_url = urlparse(url)
         print(parsed_url)
+
+        filename = unquote(parsed_url.path.split('/')[-1])
         rest_url = url.replace(f'{parsed_url.scheme}://{parsed_url.netloc}', '')
         return HttpMod(host=parsed_url.netloc
-                       ,path=parsed_url.path
-                       ,query=parsed_url.query
-                       ,rest_url=rest_url
+                       , path=parsed_url.path
+                       , query=parsed_url.query
+                       , rest_url=rest_url
+                       , filename=filename
                        )
 
 
