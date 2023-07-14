@@ -86,31 +86,39 @@ class HttpClientConnector:
 
     @classmethod
     def range_download(cls, url, abs_path, s_pos, e_pos):
-        mod = HttpMod.parse_url(url)
-        abs_file = Path(abs_path)
-        conn = http.client.HTTPSConnection(mod.host)
-        payload = ''
-        headers = {f"Range": f"bytes={s_pos}-{e_pos}"}
-        conn.request("GET", mod.rest_url, payload, headers)
-        res = conn.getresponse()
-        total_size = int(res.headers.get("Content-Length"))  # 获取文件总大小
-        print(f'total_size = {total_size}')
-        chunk_size = 1024 * 128
-        print(f'下载从{s_pos}到{e_pos}')
-        with open(abs_file, 'rb+') as f:
-            f.seek(s_pos)
-            progress_bar = tqdm(total=e_pos - s_pos, unit="B", unit_scale=True)  # 创建进度条对象
-            while True:
-                chunk = res.read(chunk_size)
-                if chunk:
-                    f.write(chunk)
-                    progress_bar.update(len(chunk))  # 更新进度条
-                else:
+        while True:
+            retry = 0
+            try:
+                mod = HttpMod.parse_url(url)
+                abs_file = Path(abs_path)
+                conn = http.client.HTTPSConnection(mod.host)
+                payload = ''
+                headers = {f"Range": f"bytes={s_pos}-{e_pos}"}
+                conn.request("GET", mod.rest_url, payload, headers)
+                res = conn.getresponse()
+                total_size = int(res.headers.get("Content-Length"))  # 获取文件总大小
+                print(f'total_size = {total_size}')
+                chunk_size = 1024 * 128
+                print(f'下载从{s_pos}到{e_pos}')
+                with open(abs_file, 'rb+') as f:
+                    f.seek(s_pos)
+                    progress_bar = tqdm(total=e_pos - s_pos, unit="B", unit_scale=True)  # 创建进度条对象
+                    while True:
+                        chunk = res.read(chunk_size)
+                        if chunk:
+                            f.write(chunk)
+                            progress_bar.update(len(chunk))  # 更新进度条
+                        else:
+                            break
+                    progress_bar.close()  # 关闭进度条
+                print("下载完成")
+                res.close()
+                conn.close()
+            except Exception as e:
+                print(f"异常{str(abs_file)}分片：{s_pos}-{e_pos}")
+                retry += 1
+                if retry == 4:
                     break
-            progress_bar.close()  # 关闭进度条
-        print("下载完成")
-        res.close()
-        conn.close()
 
 
 class Testa(unittest.TestCase):
@@ -119,6 +127,7 @@ class Testa(unittest.TestCase):
         mod = HttpMod.parse_url(url)
         print(mod.__dict__)
         HttpClientConnector.get_div_list(mod, 0)
+
     def test_download(self):
         url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
         mod = HttpMod.parse_url(url)
