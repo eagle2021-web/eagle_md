@@ -34,7 +34,9 @@ class HttpClientConnector:
         if abs_file.exists():
             size = os.path.getsize(abs_file)
         else:
-            Path(abs_file.parent).mkdir(parents=True)
+            parent = Path(abs_file.parent)
+            if not parent.exists():
+                parent.mkdir(parents=True)
             with open(abs_file, 'ab') as f:
                 pass
         print(f"初始文件大小为: {size} 字节")
@@ -107,7 +109,7 @@ class HttpClientConnector:
                         chunk = res.read(chunk_size)
                         if chunk:
                             f.write(chunk)
-                            progress_bar.update(len(chunk))  # 更新进度条
+                            # progress_bar.update(len(chunk))  # 更新进度条
                         else:
                             break
                     progress_bar.close()  # 关闭进度条
@@ -129,7 +131,7 @@ class Testa(unittest.TestCase):
         HttpClientConnector.get_div_list(mod, 0)
 
     def test_download(self):
-        url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
+        url = 'https://download.jetbrains.com.cn/idea/ideaIU-2023.1.4.exe'
         mod = HttpMod.parse_url(url)
         print(mod.__dict__)
         HttpClientConnector.download(url, "a12", 4)
