@@ -13,9 +13,21 @@ spring:
     url: jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&requireSSL=true&verifyServerCertificate=false&characterEncoding=UTF-8
     username: root
     password: "123456" # 需要配置环境变量MYSQL_PASSWORD
+  kafka:
+    consumer:
+      bootstrap-servers: h131:9092
+      group-id: "eagle"
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      auto-offset-reset: latest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+
 logging:
   level:
     root: trace
+
 #mybatis-plus:
 #  typeAliasesPackage: com.eagle.mysql.pojo.entity
 #  global-config:

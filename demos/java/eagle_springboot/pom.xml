@@ -13,6 +13,8 @@
         <module>eagle_java_base</module>
         <module>eagle_generator</module>
         <module>gen_maven</module>
+        <module>cyclonedx</module>
+        <module>kafka_producer</module>
     </modules>
 
     <properties>

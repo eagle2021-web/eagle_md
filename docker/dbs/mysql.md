@@ -5,7 +5,7 @@
 docker pull mysql:latest
 运行MySQL容器：
 
-docker run -p 3306:3306 --name my-mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
+docker run -d -p 3306:3306 --name eagle_mysql -e MYSQL_ROOT_PASSWORD=123456 --restart=always mysql:latest
 在这里，我们为容器设置了名称 -name my-mysql、将 MySQL 默认端口 3306 映射到主机上的 3306 端口 -p 3306:3306，并设置MySQL根密码 -e MYSQL_ROOT_PASSWORD=my-secret-pw。
 
 检查MySQL容器状态：
