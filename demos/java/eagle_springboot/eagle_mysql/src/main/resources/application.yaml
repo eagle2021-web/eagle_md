@@ -9,10 +9,14 @@ spring:
     name: service-mysql # 服务名
   data:
     mongodb:
-      host: 192.168.0.131
-      port: 27017
-      database: sw
-      auto-index-creation: true
+#      host: 192.168.0.131
+#      port: 27019
+#      database: im
+#      auto-index-creation: true
+#      username: root
+#      password: 123456
+#      authentication-database: admin
+      uri: mongodb://user:123456@h131:27019/mydb
   datasource: # mysql数据库连接
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
