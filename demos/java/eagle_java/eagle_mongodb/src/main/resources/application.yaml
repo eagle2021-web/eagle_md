@@ -8,3 +8,5 @@ spring:
       port: 27017
       database: test
       auto-index-creation: true
+      username: root
+      password: 123456

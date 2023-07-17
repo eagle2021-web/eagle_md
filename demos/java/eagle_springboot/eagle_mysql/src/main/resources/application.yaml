@@ -7,6 +7,12 @@ spring:
     active: dev # 环境设置
   application:
     name: service-mysql # 服务名
+  data:
+    mongodb:
+      host: 192.168.0.131
+      port: 27017
+      database: sw
+      auto-index-creation: true
   datasource: # mysql数据库连接
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,7 +24,7 @@ spring:
       bootstrap-servers: h131:9092
       group-id: "eagle"
       enable-auto-commit: true
-      auto-commit-interval: 1000
+      auto-commit-interval: 10000
       auto-offset-reset: latest
 #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -26,7 +32,7 @@ spring:
 
 logging:
   level:
-    root: trace
+    root: info
 
 #mybatis-plus:
 #  typeAliasesPackage: com.eagle.mysql.pojo.entity
