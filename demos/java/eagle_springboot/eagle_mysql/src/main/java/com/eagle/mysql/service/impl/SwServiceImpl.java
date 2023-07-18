@@ -18,18 +18,13 @@ public class SwServiceImpl implements SwService {
 
     @Override
     public void saveJson(String content) {
-        mongoTemplate.getCollectionNames().forEach(System.out::println);
-//        mongoTemplate.createCollection("java");
-        mongoTemplate.getCollectionNames().forEach(System.out::println);
-
-//        JSONObject jsonObject = JSONObject.parseObject(content);
-//        String purl = jsonObject.getString("metadata.component.purl");
-//        Query query = new Query(Criteria.where("metadata.component.purl").is(purl));
-//        Update update = new Update();
-//        mongoTemplate.updateFirst(query, update, content);
-//        Document parse = Document.parse(content);
-//        mongoTemplate.
-        mongoTemplate.save(content, "java");
-
+        JSONObject jsonObject = JSONObject.parseObject(content);
+        String purl = jsonObject.getJSONObject("metadata").getJSONObject("component")
+                        .getString("purl");
+        System.out.println(purl);
+        Document parse = Document.parse(content);
+        Query query = new Query(Criteria.where("metadata.component.purl").is(purl));
+        Update update = Update.fromDocument(parse);
+        mongoTemplate.upsert(query, update, "java");
     }
 }
