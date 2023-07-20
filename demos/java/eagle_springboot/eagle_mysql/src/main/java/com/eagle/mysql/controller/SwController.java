@@ -2,10 +2,8 @@ package com.eagle.mysql.controller;
 
 import com.eagle.mysql.service.SwService;
 import org.apache.commons.io.IOUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.bson.Document;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -32,5 +30,11 @@ public class SwController {
             // Handle exception
             return "Error saving file: " + e.getMessage();
         }
+    }
+
+    @GetMapping("/queryPurl")
+    public Document queryJson(@RequestParam String purl){
+        System.out.println(purl);
+        return service.queryJson(purl);
     }
 }
