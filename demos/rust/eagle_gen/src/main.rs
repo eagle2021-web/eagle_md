@@ -100,9 +100,11 @@ fn main() {
         println!("pom.xml 文件不存在");
     }
     let mut mvn_cmd = if cfg!(target_os = "windows") {
+        println!("{}", "windows");
         let mut cmd = Command::new("mvn.cmd");
         cmd
     } else {
+        println!("{}", "not windows");
         let mut cmd = Command::new("mvn");
         cmd
     };
