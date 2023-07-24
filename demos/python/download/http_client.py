@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from http.client import HTTPConnection
 from pathlib import Path
 
+import requests
 from tqdm import tqdm
 
 from models.httpMod import HttpMod
@@ -52,11 +53,12 @@ class HttpClientConnector:
             as_completed(futures)
 
     @classmethod
-    def get_div_list(cls, mod, init_size, max_thread: int):
+    def get_div_list(cls, mod, init_size, max_thread: int=3):
         conn, res = None, None
         try:
             payload = ''
             headers = {f"Range": f"bytes=0-"}
+            http.client.HTTPSConnection
             conn = http.client.HTTPSConnection(mod.host)
             conn.request("HEAD", mod.rest_url, payload, headers)
             res = conn.getresponse()
@@ -135,5 +137,24 @@ class Testa(unittest.TestCase):
         mod = HttpMod.parse_url(url)
         print(mod.__dict__)
         HttpClientConnector.download(url, "a12", 4)
+
+    def test_proxy(self):
+        proxies = {
+            'http_proxy': 'http://localhost:10794',
+            'https_proxy': 'http://localhost:10794'
+        }
+        import requests
+
+        url = "https://huggingface.co/api/datasets/bigcode/the-stack/tree/v1.2/data?cursor=ZXlKbWFXeGxYMjVoYldVaU9pSmtZWFJoTDJOdFlXdGxJbjA9OjUw&expand=true"
+
+        payload = {}
+        headers = {
+            'Cookie': '__stripe_mid=6c5439e4-6fc1-4976-b9c2-f4e41a930e8717fc08; token=QiaaglgFZGCxRsXIvHOjUkmUKaRAsvrzGUWzeJWIknctNUfiKuBXoOZzBevFENfWPymgOiIwRsFTavCaDzsqdPFpFCYNAQyJpgpqcNuhhwlrJEzOynURdtQSvSBVVyaN; _gid=GA1.2.2028637117.1685878985; _gat=1; _ga_8Q63TH4CSL=GS1.1.1685882033.4.0.1685882033.0.0.0; _ga=GA1.1.2108550687.1685700358; __stripe_sid=bf6aaed3-e2c1-482d-86f4-c6ea60811c90fa9f3a'
+        }
+
+        response = requests.request("GET", url, headers=headers, data=payload, proxies=proxies)
+
+        print(response.text)
+
 # if __name__ == "__main__":
 # HttpClientConnector.connect(**{"name": "adsf", "age": 1})

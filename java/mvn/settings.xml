@@ -9,6 +9,7 @@
     <localRepository>/path/to/local/repo</localRepository>
     -->
     <!-- <localRepository>D:\Program Files\Develop\Portable\localRepository</localRepository> -->
+    <localRepository>e:/maven/repository</localRepository>
     <pluginGroups>
     </pluginGroups>
 

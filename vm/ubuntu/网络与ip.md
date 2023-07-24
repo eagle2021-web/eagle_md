@@ -40,7 +40,7 @@ network:
   ethernets:
     ens33:
       dhcp4: false
-      addresses: [192.168.0.122/24]
+      addresses: [192.168.0.131/24]
       optional: true
       routes:
         - to: default
