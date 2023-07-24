@@ -2,7 +2,7 @@ package com.eagle.mysql.mapper;
 
 import com.eagle.mysql.pojo.entity.Health;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.mapstruct.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
