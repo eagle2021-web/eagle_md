@@ -53,7 +53,7 @@ public class CountTimeAspect {
      *
      * @param joinPoint 切入点
      */
-    @Before(value = "countTime()")
+//    @Before(value = "countTime()")
     public void showBeginLog(JoinPoint joinPoint) {
         //通过连接点对象joinPoint 可以获取方法签名
         Signature signature = joinPoint.getSignature();
@@ -68,7 +68,7 @@ public class CountTimeAspect {
     //2. 可以再 @AfterReturning 增加属性 , 比如 returning = "res"
     //3. 同时在切入方法增加 Object res
     //4. 注意: returning = "res" 和 Object res 的 res名字一致
-    @AfterReturning(value = "countTime()", returning = "res")
+//    @AfterReturning(value = "countTime()", returning = "res")
     public void showSuccessEndLog(JoinPoint joinPoint, Object res) {
         Signature signature = joinPoint.getSignature();
         log.info("SmartAnimalAspect3-切面类showSuccessEndLog()-方法执行正常结束-日志-方法名-" + signature.getName() + " 返回的结果是=" + res);
@@ -77,14 +77,14 @@ public class CountTimeAspect {
 
 
     //异常通知：即把showExceptionLog方法切入到目标对象方法执行发生异常的的catch{}
-    @AfterThrowing(value = "countTime()", throwing = "throwable")
+//    @AfterThrowing(value = "countTime()", throwing = "throwable")
     public void showExceptionLog(JoinPoint joinPoint, Throwable throwable) {
         Signature signature = joinPoint.getSignature();
         log.error("SmartAnimalAspect3-切面类showExceptionLog()-方法执行异常-日志-方法名-" + signature.getName() + " 异常信息=" + throwable);
     }
 
     //最终通知：即把showFinallyEndLog方法切入到目标方法执行后(不管是否发生异常,都要执行 finally{})
-    @After(value = "countTime()")
+//    @After(value = "countTime()")
     public void showFinallyEndLog(JoinPoint joinPoint) {
         Signature signature = joinPoint.getSignature();
         log.info("SmartAnimalAspect3-切面类showFinallyEndLog()-方法最终执行完毕-日志-方法名-" + signature.getName());
