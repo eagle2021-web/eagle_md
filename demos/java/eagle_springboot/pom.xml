@@ -15,6 +15,7 @@
         <module>gen_maven</module>
         <module>cyclonedx</module>
         <module>kafka_producer</module>
+        <module>eagle_gen_mysql_entity</module>
     </modules>
 
     <properties>
