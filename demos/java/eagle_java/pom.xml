@@ -17,13 +17,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eagle_common</module>
-        <module>eagle_core</module>
         <module>eagle_mysql</module>
         <module>eagle_mongodb</module>
         <module>eagle_redis</module>
-        <module>eagle_leetcode</module>
-        <module>eagle_hsp_mybatis</module>
-        <module>eagle_hsp_mybatis2</module>
         <module>eagle_test_spring</module>
         <module>eagle_mysql/eagle_mybatis_plus</module>
         <module>eagle_open_feign</module>

@@ -8,7 +8,7 @@ public class Student {
     private String name;
 }
 @Data
-class Person {
+class  Person {
     Object student; //我希望他可以映射Student，也可以映射String
 
     public void setStudent(Object student) {

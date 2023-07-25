@@ -16,6 +16,9 @@
         <module>cyclonedx</module>
         <module>kafka_producer</module>
         <module>eagle_gen_mysql_entity</module>
+        <module>eagle_mybatis_annotation</module>
+        <module>eagle_mock_mybatis</module>
+        <module>eagle_test_spring</module>
     </modules>
 
     <properties>

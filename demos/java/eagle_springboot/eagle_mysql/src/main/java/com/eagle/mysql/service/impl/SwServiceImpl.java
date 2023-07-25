@@ -39,6 +39,5 @@ public class SwServiceImpl implements SwService {
         FindIterable<Document> result = collection.find(query).projection(Projections.excludeId());
         Document first = result.first();
         return first;
-
     }
 }

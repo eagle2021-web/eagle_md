@@ -5,6 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 /**
  * @ServletComponentScan与@ComponentScan是Spring框架中的两个注解，它们具有不同的功能和用途。
@@ -24,6 +30,16 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 //(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @ServletComponentScan("com.eagle")
+//@ComponentScan(
+//        basePackages = "com.eagle",
+//        useDefaultFilters = false,
+//        includeFilters = {
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Service.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Repository.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Component.class)
+//        }
+//)
 //@EntityScan("com.eagle.mysql.pojo.entity")
 //@MapperScan(basePackages = "com.eagle.mysql.convertor")
 public class ServiceMysqlApplication {
