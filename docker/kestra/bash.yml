@@ -6,3 +6,4 @@ tasks:
     commands:
       - echo "${PATH}"
       - docker run -p 8080:8080 my-python-app
+      -
