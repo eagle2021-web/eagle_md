@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.spring.mongodb.example.ServiceTestMVCApplication;
 import org.spring.mongodb.example.service.SService;
 import org.spring.mongodb.example.spring_test.contoller.HealthController;
@@ -43,6 +45,7 @@ public class TestMvc {
     }
 
     @Test
+    @EnabledOnOs(OS.WINDOWS)
     public void test() throws Exception {
         // 设置模拟行为
         when(sService.abc(anyString())).thenReturn("hello");

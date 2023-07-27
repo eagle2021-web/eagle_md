@@ -16,17 +16,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.8</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>2.7.8</version>
+            <version>6.0.9</version>
         </dependency>
+
 
         <!-- Spring MVC -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>2.7.8</version>
+            <version>6.0.9</version>
         </dependency>
 
         <dependency>

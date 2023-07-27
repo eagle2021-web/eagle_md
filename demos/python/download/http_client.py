@@ -3,35 +3,45 @@
 import http
 import unittest
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from http.client import HTTPConnection
+from http.client import HTTPConnection, HTTPSConnection
 from pathlib import Path
 
 import requests
+from rich.progress import Progress
 from tqdm import tqdm
 
 from models.httpMod import HttpMod
 from models.localFileMod import LocalFileMod
 import os
-
-
+from time import sleep
+from rich.progress import (
+    BarColumn,
+    DownloadColumn,
+    Progress,
+    SpinnerColumn,
+    TaskProgressColumn,
+    TimeElapsedColumn,
+    TimeRemainingColumn,
+    TextColumn,
+    TransferSpeedColumn
+)
 class HttpClientConnector:
     def __init__(self, **kwargs) -> None:
         print(kwargs)
-        self.session = kwargs.get("session")
-        hc = HTTPConnection()
-        hc.connect("www.")
 
     @classmethod
     def connect(cls, **kwargs):
+
         return cls(**kwargs)
 
     @classmethod
-    def download(cls, url: str, rel_dir: str, max_thread: int = 4):
-        mod = HttpMod.parse_url(url)
-        local_mod = LocalFileMod.create_mod(rel_dir=rel_dir, filename=mod.filename)
-        abs_file = Path(local_mod.abs_file_path)
+    def get_zenodo_connection(cls, host="www.zenodo.org"):
+        hc = HTTPSConnection(host)
+        return hc
+
+    @classmethod
+    def create_file(cls, abs_file: Path) -> int:
         size = 0
-        conn, res = None, None
         if abs_file.exists():
             size = os.path.getsize(abs_file)
         else:
@@ -40,46 +50,78 @@ class HttpClientConnector:
                 parent.mkdir(parents=True)
             with open(abs_file, 'ab') as f:
                 pass
-        print(f"初始文件大小为: {size} 字节")
-        divided_list = cls.get_div_list(mod, size, max_thread)
+        return size
+
+    def download(self, url: str, rel_dir: str, max_thread: int = 4):
+        mod = HttpMod.parse_url(url)
+        local_mod = LocalFileMod.create_mod(rel_dir=rel_dir, filename=mod.filename)
+        abs_file = Path(local_mod.abs_file_path)
+        init_size = self.create_file(abs_file)
+        total_size, divided_list = self.get_div_list(mod, init_size, max_thread)
         if divided_list is None:
             return
+        progress = Progress(TextColumn("[progress.description]{task.description}"),
+                    SpinnerColumn(),
+                    BarColumn(),
+                    # FileSizeColumn(),
+                    # TotalFileSizeColumn(),
+                    DownloadColumn(),
+                    # TransferSpeedColumn(),
+                    TransferSpeedColumn(),
+                    TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
+                    TimeRemainingColumn(),
+                    TimeElapsedColumn(),
+                    refresh_per_second=0.3)
+
+        # 添加一个任务，指定任务总数
+        task_list = []
+        for s_pos, e_pos in divided_list:
+            length = e_pos - s_pos + 1
+            task = progress.add_task(description=f"[cyan]sec__{s_pos}_{e_pos}...", total=length)
+            task_list.append(task)
+        progress.start()
+        idx = 0
+        futures = []
         with ThreadPoolExecutor() as p:
-            futures = []
             for s_pos, e_pos in divided_list:
                 print(s_pos, e_pos)
-                futures.append(p.submit(cls.range_download, url, local_mod.abs_file_path, s_pos, e_pos))
+                cur_task = task_list[idx]
+                idx += 1
+                futures.append(p.submit(self.range_download, url, local_mod.abs_file_path, s_pos, e_pos,
+                                        progress, cur_task))
             # 等待所有任务执行完毕
             as_completed(futures)
+        progress.stop()
+        sleep(1)
 
     @classmethod
-    def get_div_list(cls, mod, init_size, max_thread: int=3):
+    def get_div_list(cls, mod, init_size, max_thread: int = 3):
         conn, res = None, None
         try:
             payload = ''
             headers = {f"Range": f"bytes=0-"}
-            http.client.HTTPSConnection
-            conn = http.client.HTTPSConnection(mod.host)
+            conn = cls.get_zenodo_connection()
             conn.request("HEAD", mod.rest_url, payload, headers)
             res = conn.getresponse()
             total_size = int(res.headers.get("Content-Length"))  # 获取文件总大小
             print(f'total_size = {total_size}')
             if total_size <= init_size:
-                return list()
-            rest_size = total_size - init_size
+                return total_size, list()
+            rest_size = total_size - 0
             # 100M一个
             thread_num = int(rest_size / (100 * 1024)) + 1
             if thread_num > max_thread:
                 thread_num = max_thread
             step = rest_size // thread_num
             divided_list = []
+            init_size = 0
             for i in range(thread_num):
                 s_pos = init_size + step * i
                 e_pos = init_size + step * (i + 1) - 1
                 divided_list.append([s_pos, e_pos])
             divided_list[-1][1] = total_size - 1
             print(divided_list)
-            return divided_list
+            return total_size, divided_list
         except Exception as e:
             print(e)
         finally:
@@ -88,9 +130,9 @@ class HttpClientConnector:
             if conn:
                 conn.close()
 
-    @classmethod
-    def range_download(cls, url, abs_path, s_pos, e_pos):
+    def range_download(self, url, abs_path, s_pos, e_pos, progress: Progress, task):
         while True:
+            conn, res = None, None
             retry = 0
             try:
                 mod = HttpMod.parse_url(url)
@@ -102,41 +144,56 @@ class HttpClientConnector:
                 res = conn.getresponse()
                 total_size = int(res.headers.get("Content-Length"))  # 获取文件总大小
                 print(f'total_size = {total_size}')
-                chunk_size = 1024 * 128
+                chunk_size = 1024 * 256
                 print(f'下载从{s_pos}到{e_pos}')
                 with open(abs_file, 'rb+') as f:
                     f.seek(s_pos)
-                    progress_bar = tqdm(total=e_pos - s_pos, unit="B", unit_scale=True)  # 创建进度条对象
                     while True:
                         chunk = res.read(chunk_size)
                         if chunk:
+                            progress.advance(task, advance=len(chunk))
                             f.write(chunk)
                             # progress_bar.update(len(chunk))  # 更新进度条
                         else:
                             break
-                    progress_bar.close()  # 关闭进度条
-                print("下载完成")
-                res.close()
-                conn.close()
+                break
             except Exception as e:
                 print(f"异常{str(abs_file)}分片：{s_pos}-{e_pos}")
+                progress.update(task, completed=0)  
                 retry += 1
                 if retry == 4:
                     break
+            finally:
+                if res:
+                    res.close()
+                if conn:
+                    conn.close()
 
 
 class Testa(unittest.TestCase):
     def testa(self):
         url = 'https://www.zenodo.org/record/8072936/files/trixi-framework/Trixi.jl-v0.5.30.zip?download=1'
+        url = 'https://www.zenodo.org/api/files/fafb41f4-4679-4ade-8ec6-1e48ecd43072/mentions.zip'
         mod = HttpMod.parse_url(url)
         print(mod.__dict__)
-        HttpClientConnector.get_div_list(mod, 0)
+        # HttpClientConnector.get_div_list(mod, 0)
+        HttpClientConnector().download(url, "a14", 1)
 
     def test_download(self):
-        url = 'https://download.jetbrains.com.cn/idea/ideaIU-2023.1.4.exe'
-        mod = HttpMod.parse_url(url)
-        print(mod.__dict__)
-        HttpClientConnector.download(url, "a12", 4)
+        url = "https://www.zenodo.org/api/files/fafb41f4-4679-4ade-8ec6-1e48ecd43072/mentions.zip"
+        filename = "mentions.zip"
+
+        response = requests.get(url, stream=True)
+        response.raise_for_status()
+
+        total_size = int(response.headers.get("content-length", 0))
+
+        with open(filename, "wb") as file, tqdm(
+            total=total_size, unit="B", unit_scale=True, unit_divisor=1024, desc=filename
+        ) as progress:
+            for chunk in response.iter_content(chunk_size=8192):
+                file.write(chunk)
+                progress.update(len(chunk))
 
     def test_proxy(self):
         proxies = {

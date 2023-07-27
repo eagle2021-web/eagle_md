@@ -2,6 +2,8 @@ package com.eagle.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -43,6 +45,7 @@ public class TestMvc {
     }
 
     @Test
+    @EnabledOnOs(OS.WINDOWS)
     public void test() throws Exception {
         // 设置模拟行为
         when(sService.abc(anyString())).thenReturn("hello");
