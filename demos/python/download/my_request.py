@@ -58,7 +58,6 @@ class Requestor:
 
     @classmethod
     def download(cls, url: str, rel_dir: str, max_thread=4):
-        print(1)
         mod = HttpMod.parse_url(url)
         local_mod = LocalFileMod.create_mod(rel_dir=rel_dir, filename=mod.filename)
         abs_file = Path(local_mod.abs_file_path)
@@ -84,7 +83,7 @@ class Requestor:
         task_list = []
         for s_pos, e_pos in divided_list:
             length = e_pos - s_pos + 1
-            task = progress.add_task(description=f"[cyan]sec__{s_pos}_{e_pos}...", total=length)
+            task = progress.add_task(description=f"[cyan]sec_{s_pos}_{e_pos}...", total=length)
             task_list.append(task)
         progress.start()
         idx = 0
@@ -112,6 +111,7 @@ class Requestor:
 
     @classmethod
     def range_download(cls, url, abs_path, s_pos, e_pos, progress: Progress, task, queue: Queue, idx: int):
+        begin = s_pos
         while True:
             retry = 0
             try:
@@ -128,7 +128,6 @@ class Requestor:
                         progress.advance(task, advance=len(chunk))         
                         queue.put((None, chunk, len(chunk), offset, idx))
                         offset += len(chunk)
-                        print(offset - s_pos)
                 queue.put((True, None, None, None, None))
                 # response.close()
                 break
@@ -136,7 +135,7 @@ class Requestor:
                 print(e)
                 print(f"异常{str(abs_file)}分片：{s_pos}-{e_pos}")
                 print(f'下一个开始于{offset}')
-                progress.update(task, completed=offset - s_pos)  
+                progress.update(task, completed=offset - begin)  
                 s_pos = offset
                 retry += 1
                 if retry == 4:
@@ -158,5 +157,6 @@ class Requestor:
                     f.write(data)
 if __name__ == '__main__':
     url = "https://www.zenodo.org/api/files/fafb41f4-4679-4ade-8ec6-1e48ecd43072/mentions.zip"
-    total_size = Requestor.download(url=url, rel_dir='a18', max_thread=2)
+    url = 'https://www.zenodo.org/record/7834392/files/full_dataset.tsv.gz.part-aa?download=1'
+    total_size = Requestor.download(url=url, rel_dir='a19', max_thread=10)
 
