@@ -23,4 +23,5 @@ Sec-Fetch-Dest: empty
 Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-origin
 
+
 {"query":"\n    query profileSolutionArticles($userSlug: String!, $skip: Int, $first: Int) {\n  solutionArticles(userSlug: $userSlug, skip: $skip, first: $first) {\n    pageInfo {\n      hasNextPage\n    }\n    edges {\n      node {\n        title\n        slug\n        createdAt\n        status\n        question {\n          titleSlug\n          translatedTitle\n          questionFrontendId\n        }\n        upvoteCount\n        topic {\n          viewCount\n        }\n      }\n    }\n  }\n}\n    ","variables":{"userSlug":"ac_oier","skip":0,"first":15},"operationName":"profileSolutionArticles"}
