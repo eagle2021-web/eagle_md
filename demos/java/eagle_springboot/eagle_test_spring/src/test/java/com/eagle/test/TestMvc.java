@@ -47,7 +47,7 @@ public class TestMvc {
     @Test
     @EnabledOnOs(OS.WINDOWS)
     public void test() throws Exception {
-        // 设置模拟行为
+        // 设置模拟行为mybatis_plus_datasource
         when(sService.abc(anyString())).thenReturn("hello");
 //
         // 执行测试逻辑并断言结果
