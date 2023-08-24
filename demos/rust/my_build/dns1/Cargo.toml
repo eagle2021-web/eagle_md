@@ -1,0 +1,11 @@
+[package]
+name = "dns1"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+trust-dns-resolver = "0.11.0"
+trust-dns = "0.16.0"
+

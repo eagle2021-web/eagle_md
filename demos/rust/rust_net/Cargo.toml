@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "my_tcp",
+    "my_udp",
 ]
 
 [profile.dev]

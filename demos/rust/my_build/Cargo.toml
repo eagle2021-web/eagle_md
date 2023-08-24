@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    "build1",
+    "build2",
+    "dns1",
+    "ipaddr",
+    "letter1",
+    "mio1",
+    "mio1",
+    "use_pnet",
+    "use_serde2",
+
+]
