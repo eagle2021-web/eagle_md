@@ -11,22 +11,17 @@ serde_json = {version = "1.0.85"}
 docopt = "1.1.1"
 serde = "1.0.144"
 walkdir = "2.*"
-my_err = {path = "../my_err"}
 druid-shell = "0.7.0"
 clap = "2.34.0"
 itertools = "0.10.5"
-common_utils = {path="../common_utils"}
 num_cpus = "1.13.1"
 rayon = "1.5.3"
-test_cfg = {path = "../test_cfg"}
 chrono = "0.4.22"
 zip = "0.6.4"
 [[bin]]
 name = "doc_rust"
 [[bin]]
 name = "cp_bin"
-[[bin]]
-name = "git_clone"
 [[bin]]
 name = "suf_len"
 [[bin]]

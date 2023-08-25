@@ -1,0 +1,18 @@
+[package]
+name = "my_sz"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num = "0.4"
+[[bin]]
+name = "Rust中的数字字面量和基本的算术运算"
+[[bin]]
+name = "使用二进制八进制及十六进制数字字面量"
+[[bin]]
+name = "浮點數"
+[[bin]]
+name = "复数"
+

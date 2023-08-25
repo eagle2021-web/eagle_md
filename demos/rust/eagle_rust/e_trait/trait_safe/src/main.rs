@@ -45,7 +45,7 @@ fn main() {
     p.foo1();
     // p.foo2(); // err
     // error: the `foo2` method cannot be invoked on a trait object
-    // --> e_trait\trait_safe\src\main.rs:46:7
+    // --> e_trait\trait_safe\src\Rust中的数字字面量和基本的算术运算.rs:46:7
     //     |
     //     13 |     fn foo2(&self) where Self:Sized;
     // |                               ----- this has a `Sized` requirement
