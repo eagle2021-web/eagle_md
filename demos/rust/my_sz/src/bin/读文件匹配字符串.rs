@@ -4,6 +4,7 @@ use std::io::prelude::*;
 use regex::Regex;
 use clap::{App,Arg};
 fn main(){
+    //run --package my_sz --bin 读文件匹配字符串  -- about e:\hello.txt
     let args = App::new("grep-lite")
         .version("0.1")
         .about("searches for patterns")
