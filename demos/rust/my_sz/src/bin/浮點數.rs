@@ -19,9 +19,11 @@ fn main(){
 
 
     let x = (-42.0_f32).sqrt();
+    println!("{}", x);
     assert!(x.is_nan());
 
     let x: f32 = 1.0 / 0.0;
-    assert!(x.is_finite());
+    println!("{}", x);
+    assert!(x.is_infinite());
 
 }
