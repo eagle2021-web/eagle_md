@@ -6,7 +6,9 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = "3.2.23"
 num = "0.4"
+regex = "1.9.4"
 [[bin]]
 name = "Rust中的数字字面量和基本的算术运算"
 [[bin]]
@@ -17,4 +19,5 @@ name = "浮點數"
 name = "复数"
 [[bin]]
 name = "函数"
-
+[[bin]]
+name = "读文件匹配字符串"
