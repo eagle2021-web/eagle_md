@@ -1,9 +1,11 @@
 ```dockerfile
 FROM eagle_python:1
+RUN wget -O ruby-2.6.3.tar.xz https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz
 # 将 ruby-2.6.3.tar.xz 文件复制到镜像中
 COPY ruby-2.6.3.tar.xz /
+WORKDIR /
 # 解压 ruby-2.6.3.tar.xz 文件
-RUN tar -xf ruby-2.6.3.tar.xz
+RUN tar -xf /ruby-2.6.3.tar.xz
 # 设置工作目录为解压后的目录
 WORKDIR /ruby-2.6.3
 # 执行编译命令
@@ -20,6 +22,29 @@ RUN gem install bundler -v 2.4.12
 WORKDIR /
 ```
 
+```dockerfile
+FROM eagle_python:1
+ARG RUBY_VERSION=2.6.3
+ARG RUBY_TARBALL_URL=https://cache.ruby-lang.org/pub/ruby/2.6/ruby-${RUBY_VERSION}.tar.xz
+# 下载 Ruby 源码文件
+RUN wget -O ruby.tar.xz ${RUBY_TARBALL_URL}
+# 解压 Ruby 源码文件
+RUN tar -xf ruby.tar.xz
+# 进入 Ruby 源码目录
+WORKDIR /ruby-${RUBY_VERSION}
+# 执行编译命令
+RUN ./configure && make && make install
+# 移除默认的 RubyGems 源
+RUN gem sources --remove https://rubygems.org/
+# 新增阿里云的 RubyGems 源
+RUN gem sources -a https://mirrors.aliyun.com/rubygems/
+# 更新 RubyGems
+RUN gem update --system 3.4.12
+# 安装 bundler 特定版本
+RUN gem install bundler -v 2.4.12
+# 设置工作目录为根目录
+WORKDIR /
+```
 
 以上为dockerfile
 ```shell
