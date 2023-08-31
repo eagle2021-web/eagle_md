@@ -9,7 +9,7 @@ edition = "2021"
 clap = "3.2.23"
 num = "0.4"
 rand = "0.8.5"
-regex = "1.9.4"
+regex = "1.7.3"
 [[bin]]
 name = "Rust中的数字字面量和基本的算术运算"
 [[bin]]
