@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.eagle.mysql.mapper.MonsterMapper">
+    <insert id="addMonster2" parameterType="com.eagle.mysql.pojo.entity.Monster" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO `monster`
+            (`age`, `birthday`, `email`, `gender`, `name`, `salary`)
+        VALUES (#{age}, #{birthday}, #{email}, #{gender}, #{name}, #{salary})
+    </insert>
+<!--    库commons-dbcp2  -->
+    <select id="findMonsterByAge" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="Integer">
+        SELECT * FROM `monster` WHERE 1=1
+        <!--    age参数  -->
+        <if test="age != null and age >= 1">
+            AND monster.age >= #{age}
+        </if>
+    </select>
+    <select id="findMonsterByIdAndName" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="Integer">
+        SELECT * FROM `monster`
+        <where>
+            <if test="id >= 0">
+                AND id >= #{age}
+            </if>
+            <if test="age != null and age >= 8">
+                AND monster.age >= #{age}
+            </if>
+        </where>
+    </select>
+
+    <select id="findMonsterByIdOrName_choose" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="map">
+        SELECT * FROM `monster`
+        <choose>
+            <when test="name != null and name != ''">
+                WHERE `name` = #{name}
+            </when>
+        </choose>
+        <choose>
+            <when test="id != null and id > 0">
+                WHERE `id` >= #{id}
+            </when>
+        </choose>
+    </select>
+
+    <select id="findMonsterById_foreach" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="map">
+        SELECT * FROM `monster`
+        <if test="ids != null and ids != ''">
+            <where>
+                id in
+                <foreach collection="ids" item="id" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </where>
+        </if>
+    </select>
+
+<!--第一个prefixOverrides被转成where-->
+    <select id="findMonsterByNameAndAge_Trim" resultType="com.eagle.mysql.pojo.entity.Monster" parameterType="Integer">
+        SELECT * FROM `monster`
+        <trim prefix="WHERE" prefixOverrides="and|or|hsp">
+            <if test="id >= 0">
+                hsp id >= #{age}
+            </if>
+            <if test="age != null and age >= 8">
+                hsp monster.age >= #{age}
+            </if>
+        </trim>
+    </select>
+
+    <update id="updateMonsterById" parameterType="com.eagle.mysql.pojo.entity.Monster" >
+        UPDATE `monster`
+        <set>
+            <if test="age != null and age != ''">
+                `age` = #{age},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name}
+            </if>
+            <if test="salary != null and salary != ''">
+                `salary` = #{salary}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

@@ -1,9 +1,7 @@
 package com.eagle;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -31,17 +29,17 @@ import org.springframework.stereotype.Service;
 //(exclude = DataSourceAutoConfiguration.class)
 @SpringBootApplication
 @ServletComponentScan("com.eagle")
-@ComponentScan(
-        basePackages = "com.eagle",
-        useDefaultFilters = false,
-        includeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Service.class),
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class),
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Repository.class),
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Component.class),
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class)
-        }
-)
+//@ComponentScan(
+//        basePackages = "com.eagle",
+//        useDefaultFilters = false,
+//        includeFilters = {
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Service.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Controller.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Repository.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Component.class),
+//                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Configuration.class)
+//        }
+//)
 //@EntityScan("com.eagle.mysql.pojo.entity")
 //@MapperScan(basePackages = "com.eagle.mysql.convertor")
 public class ServiceMysqlApplication {

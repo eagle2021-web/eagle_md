@@ -1,5 +1,5 @@
 server:
-  port: 8112 # 服务端口
+  port: 8113 #服务端口
   servlet:
     context-path: /mysql
 spring:
@@ -9,6 +9,7 @@ spring:
     name: service-mysql # 服务名
   data:
     mongodb:
+      uri: mongodb://user:123456@h131:27019/mydb
 #      host: 192.168.0.131
 #      port: 27019
 #      database: im
@@ -16,27 +17,27 @@ spring:
 #      username: root
 #      password: 123456
 #      authentication-database: admin
-      uri: mongodb://user:123456@h131:27019/mydb
-  datasource: # mysql数据库连接
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&requireSSL=true&verifyServerCertificate=false&characterEncoding=UTF-8
-    username: root
-    password: "123456" # 需要配置环境变量MYSQL_PASSWORD
-  kafka:
-    consumer:
-      bootstrap-servers: h131:9092
-      group-id: "eagle"
-      enable-auto-commit: true
-      auto-commit-interval: 10000
-      auto-offset-reset: latest
+
+#  datasource: # mysql数据库连接
+#    type: com.zaxxer.hikari.HikariDataSource
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://h131:3306/hsp_mybatis?useSSL=true&requireSSL=true&verifyServerCertificate=false&characterEncoding=UTF-8
+#    username: root
+#    password: 123456 # 需要配置环境变量MYSQL_PASSWORD
+#  kafka:
+#    consumer:
+#      bootstrap-servers: h131:9092
+#      group-id: "eagle"
+#      enable-auto-commit: true
+#      auto-commit-interval: 10000
+#      auto-offset-reset: latest
 #      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 #      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
 
 logging:
   level:
-    root: info
+    root: debug
 
 #mybatis-plus:
 #  typeAliasesPackage: com.eagle.mysql.pojo.entity
