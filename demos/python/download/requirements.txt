@@ -1,4 +1,0 @@
-tqdm
-progressbar
-requests
-rich
