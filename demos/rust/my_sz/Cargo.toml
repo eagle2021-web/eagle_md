@@ -32,4 +32,6 @@ name = "相等"
 name = "文档"
 [[bin]]
 name = "链表"
+[[bin]]
+name = "寄存器与CPU"
 
