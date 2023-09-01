@@ -40,7 +40,10 @@
 
 
 int main() {
-//    pip install "conan>=1,<2.0" -U
-//conan install conanfile.txt --build=missing --install-folder=./path3
+//  pip install "conan>=1,<2.0" -U
+//  conan install conanfile.txt --build=missing --install-folder=./path3
+//  conan profile update settings.compiler.libcxx=libstdc++11 default
+// linux
+// conan profile update settings.compiler.libcxx=libstdc++11 default
     return 0;
 }

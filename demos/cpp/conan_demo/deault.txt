@@ -1,0 +1,4 @@
+linux在~/conan/profiles/default文件添加
+解决安装系统依赖失败的问题
+[conf]
+tools.system.package_manager:mode=install

@@ -1,4 +1,8 @@
 [requires]
-gtest/1.14.0
+opencv/4.5.5
 [generators]
+CMakeDeps
+CMakeToolchain
 cmake
+[layout]
+cmake_layout
