@@ -40,7 +40,7 @@
 
 
 int main() {
-
-
+//    pip install "conan>=1,<2.0" -U
+//conan install conanfile.txt --build=missing --install-folder=./path3
     return 0;
 }
