@@ -1,37 +1,5 @@
-[package]
-name = "my_sz"
-version = "0.1.0"
-edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
-clap = "3.2.23"
-num = "0.4"
-rand = "0.8.5"
-regex = "1.7.3"
-[[bin]]
-name = "Rust中的数字字面量和基本的算术运算"
-[[bin]]
-name = "使用二进制八进制及十六进制数字字面量"
-[[bin]]
-name = "浮點數"
-[[bin]]
-name = "复数"
-[[bin]]
-name = "函数"
-[[bin]]
-name = "读文件匹配字符串"
-[[bin]]
-name = "模拟读文件"
-[[bin]]
-name = "随机数"
-[[bin]]
-name = "相等"
-[[bin]]
-name = "文档"
-[[bin]]
-name = "链表"
-[[bin]]
-name = "寄存器与CPU"
-
+[workspace]
+members = [
+    "base",
+    "memory"
+]

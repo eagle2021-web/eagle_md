@@ -4,8 +4,11 @@ use trust_dns_resolver::config::*;
 use trust_dns::rr::record_type::RecordType;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let mut args: Vec<String> = env::args().collect();
     println!("{}", args.len());
+    if args.len() != 2 {
+        args.push("www.baidu.com".to_string());
+    }
     if args.len() != 2 {
         eprintln!("Please provide a name to query!");
         std::process::exit(1);
@@ -20,7 +23,7 @@ fn main() {
     // 使用 resolver.lookup_ip(query.as_str()) 方法进行域名解析，返回一个包含 IP 地址的 response。
     let response = resolver.lookup_ip(query.as_str());
     for ans in response.iter() {
-        println!("bb {:?}", ans);
+        println!("bb {:#?}", ans);
     }
 
     println!("use system config:");
@@ -28,7 +31,7 @@ fn main() {
         Resolver::from_system_conf().unwrap();
     let response = resolver.lookup_ip(query.as_str());
     for ans in response.iter() {
-        println!("{:?}", ans);
+        println!("{:#?}", ans);
     }
 
     println!("use ns:");
