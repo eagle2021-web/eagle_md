@@ -62,5 +62,4 @@ fn main() {
     println!("{:?}", f4);
     println!("{} is{} bytes long", &f4.name, f4_length);
     println!("{}", text);
-    let _f = File::new2("f1.txt");
 }

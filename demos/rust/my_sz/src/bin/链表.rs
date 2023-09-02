@@ -51,17 +51,11 @@ impl List {
             .as_ref()
             .unwrap()
             .upgrade();
-        // let tail_prev2_op = tail_br.prev.as_ref();
-        // let tail_prev2_weak = tail_prev2_op.unwrap();
-        // let tail_prev2 = tail_prev2_weak.upgrade();
-        // let tail_prev = tail_prev2.as_ref().unwrap();
-        // drop(tail_borrow);
-        // drop(tail_prev2);
+
         let tail_prev = tail_br.unwrap();
         let mut new_node = Node::new(value);
         new_node.borrow_mut().next = Some(Rc::clone(tail_borrow));
-        let tail_mut = self.tail.as_ref().unwrap();
-        tail_mut.borrow_mut().prev = Some(Rc::downgrade(&new_node));
+        tail_borrow.borrow_mut().prev = Some(Rc::downgrade(&new_node));
 
         tail_prev.borrow_mut().next = Some(Rc::clone(&new_node));
         new_node.borrow_mut().prev = Some(Rc::downgrade(&tail_prev));
