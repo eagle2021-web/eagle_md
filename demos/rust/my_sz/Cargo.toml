@@ -1,5 +1,7 @@
 [workspace]
 members = [
     "base",
-    "memory"
+    "memory",
+    "file_io",
+    "net"
 ]

@@ -1,0 +1,21 @@
+[package]
+name = "memory"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[[bin]]
+name = "ref"
+[[bin]]
+name = "外部来源字符串"
+[[bin]]
+name = "my_rustc"
+[[bin]]
+name = "模拟文件IO"
+[[bin]]
+name = "遍历文件内容"
+
+
