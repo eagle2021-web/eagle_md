@@ -8,13 +8,23 @@ edition = "2021"
 [dependencies]
 reqwest = "0.9.24"
 clap = "2.33"
-trust-dns ={ version = "0.16.1", default-features = false }
+trust-dns = { version = "0.16.1", default-features = false }
 rand = "0.7.3"
+rustscan = "2.0.0"
+
+# 提供了一个TCP的实现。
+smoltcp = { version = "0.9.1", default-features = false, features = ["log"] }
+url = "2"# 用于URL的解析和验证。
+
 [[bin]]
-name="request"
+name = "request"
 [[bin]]
-name="trait_rpg"
+name = "trait_rpg"
 [[bin]]
-name="tcp"
+name = "tcp"
 [[bin]]
-name="resolve"
+name = "resolve"
+[[bin]]
+name = "异常转换"
+[[bin]]
+name = "mget"
