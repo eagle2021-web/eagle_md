@@ -4,5 +4,6 @@ members = [
     "memory",
     "file_io",
     "net",
-    "request"
+    "request",
+    "tc"
 ]
