@@ -39,4 +39,14 @@ public class MonsterController {
         monsterMapper.addMonster2(monster);
         return monster.toString();
     }
+
+    @PostMapping("/addMonster2")
+    public String addMonster2(@RequestParam String name){
+        System.out.println(name);
+        log.info("dafsdf");
+        Monster monster = new Monster();
+        monster.setName("hsp");
+        monsterMapper.addMonster2(monster);
+        return monster.toString();
+    }
 }

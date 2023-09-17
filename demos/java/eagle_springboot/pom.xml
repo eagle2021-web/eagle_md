@@ -19,7 +19,7 @@
         <module>eagle_mybatis_annotation</module>
         <module>eagle_mock_mybatis</module>
         <module>eagle_test_spring</module>
-        <module>mybatis_plus_datasource</module>
+        <module>eagle_mysql_connect</module>
         <module>mybatis_plus_datasource</module>
         <module>mybatisplus</module>
     </modules>

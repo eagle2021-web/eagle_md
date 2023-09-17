@@ -1,3 +1,4 @@
+#![allow(unused)]
 use std::collections::HashMap;
 use std::mem::{size_of, size_of_val};
 macro_rules! hashmap {

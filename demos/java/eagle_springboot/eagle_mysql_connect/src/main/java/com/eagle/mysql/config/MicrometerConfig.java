@@ -12,19 +12,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MicrometerConfig {
 
-    @Bean
-    public MeterRegistryCustomizer<MeterRegistry> registryCustomizer(MeterRegistry meterRegistry) {
-        return registry -> {
-            // 在Micrometer Registry中添加Logback的Appender
-            LoggingMeterRegistry loggingMeterRegistry = new LoggingMeterRegistry();
-                  loggingMeterRegistry.re
-                    .logOnlyOnWarnAndError(false)
-                    .register(meterRegistry);
-
-            // 其他的MeterRegistry配置
-            // ...
-        };
-    }
+//    @Bean
+//    public MeterRegistryCustomizer<MeterRegistry> registryCustomizer(MeterRegistry meterRegistry) {
+//        return registry -> {
+//            // 在Micrometer Registry中添加Logback的Appender
+//            LoggingMeterRegistry loggingMeterRegistry = new LoggingMeterRegistry();
+//                  loggingMeterRegistry.re
+//                    .logOnlyOnWarnAndError(false)
+//                    .register(meterRegistry);
+//
+//            // 其他的MeterRegistry配置
+//            // ...
+//        };
+//    }
 
     // 添加其他的MeterRegistry Bean
     // ...

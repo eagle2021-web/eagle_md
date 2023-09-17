@@ -1,11 +1,39 @@
+# 完整
 ```shell
 docker run \
 -d \
---name mongodb5 \
+--name mongodb20 \
 --restart=always \
 --privileged=true \
--p 27017:27017 \
--v /home//mongodb/data:/data/db \
+-p 27020:27017 \
+-v /home//mongodb/data20:/data/db \
+mongo --auth
+
+
+docker exec -it mongodb20 /bin/bash
+mongo
+use admin;
+# 超級用戶
+db.createUser({user:"root",pwd:"123456",roles:["root"]})
+db.createUser({ user:'eagle',pwd:'123456',roles:[{ role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
+use mydb
+db.createUser(
+  {
+    user: "user",
+    pwd: "123456",
+    roles: [ { role: "readWrite", db: "mydb" } ]
+  }
+)
+```
+
+```shell
+docker run \
+-d \
+--name mongodb9 \
+--restart=always \
+--privileged=true \
+-p 27019:27017 \
+-v /home//mongodb/data19:/data/db \
 mongo --auth
 
 docker run \
@@ -22,6 +50,7 @@ mongo
 db.version();
 use admin;
 db.auth("eagle", "123456");
+db.auth("user", "123456");
 db.createUser({ user:'eagle',pwd:'123456',roles:[{ role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
 db.createUser({ user:'eagle2',pwd:'123456',roles:["readWrite"]});
 
@@ -55,3 +84,9 @@ spring:
     mongodb:
       uri: mongodb://user:123456@h131:27019/mydb
 ```
+
+
+```shell
+docker run -id --name mongodb20 --restart=always -p 27020:27017 -v /home//mongodb/data20:/data/db mongo:5.0.14 /bin/bash
+```
+
