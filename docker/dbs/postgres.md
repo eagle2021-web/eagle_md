@@ -9,7 +9,7 @@ docker search postgres
 下载和运行镜像：使用以下命令从 Docker Hub 下载并运行所选的 Postgres 镜像：
 ```shell
 docker run --name cwy_post -e POSTGRES_PASSWORD=123456 -p 5555:5432 -d  --restart=always postgres:15
-docker run -p 5433:5433 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 --name cwy_post postgres:15
+docker run -p 5555:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=123456 --name cwy_post -id --restart=always postgres:15
 ```
 此命令将根据给定的密码（这里是 "mysecretpassword"）运行一个基于 Docker 容器的 Postgres 实例，并将数据库服务启动并运行在后台。你可以自己定义容器名称(some-postgres)。
 启动 Postgres 客户端：通过以下命令连接到 Postgres 容器和数据库实例，并启动 Postgres 客户端提示符：
